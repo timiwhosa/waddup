@@ -1,0 +1,355 @@
+*{
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    list-style: none;
+}
+body{
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+}
+body a{
+    color: black;
+}
+.container{
+    width:100vw;
+    margin-top: 75px;
+}
+h3{
+    margin-left:20px;
+    padding: 20px 0 10px 0;
+    font-size: 30px;
+}
+/* top */
+.top{
+    display: block;
+}
+.top a{
+    text-decoration: underline;
+}
+.top-top{
+    display: block;
+    width: 100%;
+}
+
+.top-top h1{
+    padding: 20px 0 5px 20px;
+}
+.top-top .top-top-div{
+    display: grid;
+    grid-template-columns: 4fr 1fr;
+}
+.top-top .top-top-div .top-top-txt1{
+    margin-left:20px;
+    line-height: 45px;
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+#or{
+    display: block;
+    text-align: center;
+
+}
+.top-bottom-txt1{
+    line-height: 40px;
+}
+.top-bottom-txt1 ul li{
+    list-style: square;
+    margin-left:50px;
+    font-size: larger;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.top-top-img{
+    display: grid;
+    grid-template-columns: 1fr;
+    padding-top: 30px;
+    text-align: center;
+}
+.top-top-img img{
+    width: 90px;
+    height: auto;
+    margin: 0 auto;
+}
+/* single mode */
+.mod{
+    display: block;
+    width: 100%;
+    height: 20px;
+}
+.single-mode{
+    display: block;
+    line-height: 45px;
+    width: 100%;
+}
+.single-mode h5{
+    font-size: 21px;
+    margin-left: 20px;
+}
+.single-mode ul li{
+    margin-left: 20px;
+    font-size: larger;
+    margin-bottom: 5px;
+    box-shadow: 0 0 2px  rgba(0, 0, 0, 0.58);
+    width: 390px;
+    text-align: center;
+    padding: 10px;
+    border-radius: 2px;
+}
+#start{
+    float:right;  
+}
+#start{
+    width: 100px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #fbb710;
+    border: none;
+    border-radius: 100px;
+    box-shadow: inset 3px 3px 2px #ffffff5e, 2px 2px 2px 0px #00000057;
+    font-weight: 600;
+    margin-top: 7px;
+    padding: 0;
+    cursor: pointer;
+}
+#start:active{
+    box-shadow: inset 3px 3px 2px #0808085e, inset -2px -2px 2px 0px #ffffff91;
+}
+
+/* #save{
+    float:right;  
+} */
+
+
+/* multiple mode */
+#save input{
+    width: 100px;
+    height: 30px;
+    background: #fbb710;
+    border: none;
+    border-radius: 100px;
+    box-shadow: inset 3px 3px 2px #ffffff5e, 2px 2px 2px 0px #00000057;
+    font-weight: 600;
+    margin-top: 10px;
+    padding: 0;
+    cursor: pointer;
+    margin-left: 50%;
+}
+#save input:active{
+    box-shadow: inset 3px 3px 2px #0808085e, inset -2px -2px 2px 0px #ffffff91;
+}
+
+.multiple-mode{
+    display: block;
+    line-height: 45px;
+    padding: 20px 0;
+}
+.multiple-mode h5{
+    font-size: 21px;
+    margin-left: 20px;
+    padding: 10px 0;
+}
+.multiple-mode form{
+    padding-top: 20px;
+}
+.multiple-mode form p{
+    margin-left: 20px;
+    font-size: larger;
+    margin-bottom: 5px;
+    box-shadow: 0 0 2px  rgba(0, 0, 0, 0.58);
+    width: 390px;
+    text-align: center;
+    padding: 10px;
+    border-radius: 2px;
+    display: grid;
+    grid-template-columns: 5fr 1fr;
+}
+.multiple-mode p input{
+    height: 26px;
+    width: 26px;
+    /* position: absolute; */
+    margin: 10px 0 0 10px;
+}
+#error{
+    color: red;
+    padding-left: 10px;
+    font-size: 20px;
+}
+/* features */
+.features{
+    display: block;
+    width:100%;
+}
+.features h3{
+    padding: 40px 0;
+}
+.features .fet-ctn {
+    overflow-x: scroll;
+    overflow-y: hidden;
+    white-space: nowrap;
+    padding:20px 0;
+    text-align: center;
+}
+.features .fet-ctn::-webkit-scrollbar{
+    display: none;
+}
+.fet-div{
+    display: inline-block;
+    word-wrap: normal;
+    margin: 10px;
+    width: 200px;
+    height: 270px;
+    overflow: hidden;
+    text-align: left;
+    border-radius: 8px;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.1), 
+                inset -2px 0 2px #0808083b, 
+                inset 2px 0 2px #0808083b;
+}
+.fet-div:hover{
+    margin-bottom: -5px;
+    margin-top:-5px;
+    height: 280px;
+}
+.fet-div img{
+    width:100%;
+    height: 145px;
+}
+.course{
+    height: 20px;
+    padding:10px;
+    white-space: normal;
+}
+.year{
+    padding: 10px;
+    white-space: normal;
+}
+/* little stuffs */
+#pd{
+    color: #2b9be5;
+}
+#ua{
+    color: #fbb710;
+}
+#fu{
+    color: #82bb6d;
+}
+
+/* advert */
+.advert{
+    padding-top:10px;
+    text-align: center;
+}
+.advert-ctn{
+    overflow-x: scroll;
+    overflow-y: hidden;
+    white-space: nowrap;
+}
+.advert-ctn::-webkit-scrollbar{
+    display: none;
+}
+.advert .ad{
+        display: inline-block;
+    white-space: normal;
+    width: 170px;
+    height: 120px;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+    margin-bottom: 10px;
+    margin-top: 20px;
+    border-radius: 8px;
+    padding: 6px;
+    text-align: left;
+    font-size: 13px;
+    margin-right: 20px;
+    /* #00000059; */
+    
+}
+.advert .ad img{
+    width: 100%;
+    height: 60px;
+    border-radius: 8px;
+}
+.img-prod{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+.product-name{
+    padding: 2px;
+}
+
+
+
+@media screen and (max-width: 770px){
+    .multiple-mode{
+        margin-right: 10px;
+    }
+    .advert .ad:nth-child(1){
+        margin-left: 20px;
+    }
+    #save input {
+        width: 130px;
+        height: 40px;
+        font-size: 17px;
+    }
+}
+@media screen and (max-width: 480px){
+    .top-top h1{
+        font-size: 25px;
+        padding: 20px 0 5px 10px;
+    }
+    h3{
+        margin-left:10px;
+        font-size: 25px;
+    }
+    .top-top .top-top-div {
+        grid-template-columns: 3fr 1fr;
+    }
+    .top-top .top-top-div .top-top-txt1 {
+        margin-left: 10px;
+        line-height: 22px;
+        font-size: 16px;
+    }
+    .top-top-img{
+        max-height: 190px;
+        padding-top: 0;
+    }
+    .top-top .top-top-div .top-top-img img{
+        width: 70px;
+    }
+    .top-bottom-txt1{
+        line-height: 24px;
+    }
+    .top-bottom-txt1 ul{
+        margin: 10px;
+    }
+    .top-bottom-txt1 ul li{
+        font-size: 15px;
+        margin-left: 30px;
+    }
+    .single-mode ul li{
+        width: 80vw;
+        font-size: 14px;
+    }
+    #start{
+        width: 85px;
+    }
+    .multiple-mode{
+        margin-right: 10px;
+    }
+    .multiple-mode h5 {
+        font-size: 17px;
+    }
+    .multiple-mode form p {
+        width: 80vw;
+        font-size: 17px;
+        text-align: left;
+    }
+    .advert .ad:nth-child(1){
+        margin-left: 20px;
+    }
+
+    
+}
+

@@ -1,0 +1,133 @@
+*{
+    margin:0;
+    padding: 0;
+    outline: none;
+    text-decoration: none;
+    -webkit-tap-highlight-color: transparent;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+body{
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+}
+.container{
+    width: 100%;
+    height: auto;
+    padding-top: 75px;
+}
+.cart-nav{
+    width: auto;
+    padding: 0 3vw;
+    background: url("/archive/img/product4.jpg");
+    /* background-position: center; */
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100px;
+    color: white;
+
+}
+.cart-nav h3{
+    padding-top: 10px;
+}
+.order{
+    max-width: 100%;
+    min-height: calc(100vh - 170px);
+    display: flex;
+    justify-content: center;
+    padding: 2vw 5vw;
+}
+.order table img{
+    width: 70px;
+    height: auto;
+    text-align: center;
+}
+table{
+    width: 100%;
+}
+table th{
+    font-size: 158%;
+    padding: 10px;
+}
+table tr{
+    background-color: #ffc1071c;
+}
+table td{
+    padding: 10px;
+    vertical-align: middle;
+    word-break: break-word;
+    text-transform: capitalize;
+}
+table td p:nth-child(2){
+    padding: 10px 0;
+    font-weight: 500;
+}
+table .title{
+    font-size: 20px;
+    font-weight: 600;
+}
+table td:nth-child(4){
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 10%;
+    height: 60px;
+    align-items: center;
+
+}
+table td input{
+    width: 5vw;
+    height: 30px;
+    border: none;
+    outline: none;
+    border-radius: 2px;
+    text-align: center;
+    box-shadow: inset 2px 2px 2px #00000054, inset -2px -2px 2px #bebebea9 ;
+    
+}
+.inc{
+    width: 20px;
+    height: 20px;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 20px;
+    padding: 5px;
+    text-align: center;
+    background-color: white;
+    cursor: pointer;
+    border-radius: 50%;
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.555);
+}
+@media screen and (max-width: 480px){
+    .order{
+        padding: 5vw 1vw;
+    }
+    table th{
+        font-size: 85%;
+        padding: 0;
+    }
+    table .title, table  td{
+        font-size: 12px;
+    }
+    table td{
+        padding: 3px;
+    }
+    .order table img{
+        width: 50px;
+    }
+    table td:nth-child(3),table td:nth-child(5){
+        width: 44px;
+    }
+    table td:nth-child(4){
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-gap: 5px;
+    }
+    table td input, .inc{
+        margin: 0 auto;
+    }
+    .inc{
+        width: 10px;
+        height: 10px;
+        line-height: 10px;
+    }
+}

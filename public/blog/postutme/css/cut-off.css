@@ -1,0 +1,98 @@
+*{
+    margin:0;
+    padding: 0;
+    font-family: sans-serif;
+    
+}
+body{
+    width: 100vw;
+    margin:0;
+    padding:0;
+}
+.container{
+    font-size: 20px;
+    color: #474747;
+    font-stretch: extra-expanded;
+    margin-top: 75px;
+}
+.example{
+    font-size: 16px;
+    margin: 0 50px;
+}
+.container a{
+    text-decoration: underline;
+}
+h4, h2{
+    margin-left: 40px;
+    padding: 10px 0;
+}
+h1{
+    text-align: center;
+    padding:10px 0;
+}
+.container >div{
+    margin: 0 10%;
+    line-height: 30px;
+}
+.container p , .container li {
+    margin-left: 40px;
+    padding: 10px 0;
+    list-style-type: disc;
+}
+.top{
+    padding-top: 10px;
+}
+.container img{
+    width: auto;
+    max-width: 100%;
+    height: auto;
+}
+table{
+    text-align: center;
+    margin: 0 auto;
+    padding: 20px 0;
+}
+.cut-off ul{
+    margin-left: 40px;
+}
+.cut-off ul li{
+    text-transform: uppercase;
+}
+.fac{
+    text-transform: uppercase;
+}
+#other-post {
+    padding: 20px 0;
+}
+#other-post li {
+    list-style: none;
+}
+#other-post a{
+    text-decoration: underline;
+}
+
+
+@media screen and (max-width: 480px){
+    .container{
+        font-size: 14px;
+    }
+    h4,h2{
+        margin-left: 0;
+    }
+    .container >div{
+        line-height: 20px;
+        margin-left: 10px;
+    }
+    .container p,li {
+        margin-left: 10px;
+        padding: 5px 0;
+    }
+    .example{
+        font-size: 13px;
+        margin: 0 auto;
+    }
+    .cut-off ul{
+        margin-left: 20px;
+    }
+    
+}

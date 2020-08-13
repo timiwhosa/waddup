@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JET-Archive</title>
+    <link rel="stylesheet" href="/archive/css/archive.css">
+    <link rel="stylesheet" href="/general/css/cart.css">
+    <link rel="stylesheet" href="/general/css/general-style.css">
+    <script src="/general/js/jquery.min.js"></script>
+</head>
+<body>
+    <!-- menu -->
+     <div class="menu">
+        <ul id="menu"></ul>
+    </div>
+    <!-- nav -->
+    <nav id="nav"></nav>
+    <ul id= "searchoption"></ul>
+    <div id="generalinfo"></div>
+    <!-- <div class="vidd" id="vidd">
+        <span class="close-vid" id="close-vid" onclick="closecvideo()">&#215</span>
+        <div class="" id="vidd-div"></div>
+    </div> -->
+    <div class="container">
+        <div class="cart-nav">
+            <h3>JETBOOKS CART SECTION</h3>
+        </div>
+
+        <div class="order">
+            <!-- <div class="ord">
+                <div class=""><img src="/archive/img/download.jpeg" alt=""></div>
+                <div class="">
+                    <p>The richest man in babylon</p>
+                    <p>George S. Clason</p>
+                </div>
+                <div class="">
+                    5,000
+                </div>
+            </div> -->
+            <table id="carttable">
+                <tr style="background-color: white;">
+                    <th>Image</th>
+                    <th>Details</th>
+                    <th>Price</th>
+                    <th>Items</th>
+                    <th>Total price</th>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>Total:</td>
+                    <td id="cart-total">20,000</td>
+                </tr>
+            </table>
+        </div>
+
+    </div>
+
+    <div class="to-top" id="scrollup" onclick="scrollup()">
+        <span>&#8248;</span>
+    </div>
+
+    <div class="contc qa">
+        <h3>CONTACT US</h3>
+        <h5>Got a message or suggestion? Lets hear from you</h5>
+        <p>Your Name:</p>
+        <input type="text" id="contact-name" placeholder="Name/Nickname" maxlength="20">
+        <p>Whatsapp Number:</p>
+        <input type="number" id="contact-number" placeholder="For further contact" maxlength="15">
+        <p>Message</p>
+        <textarea name="contact-message" id="contact-message" cols="30" rows="10" placeholder="Pls write your message here" maxlength="500"></textarea>
+
+        <div class="up"><button onclick="contactus()">Upload</button></div>
+    </div>
+
+    <div class="usefullinks" id="usefullinks"></div>
+    <!-- <div class="site-stats"></div> -->
+    <div class="comment" id="comment"></div>   
+    <footer></footer>
+
+
+    <script>
+        String.prototype.escape = function () {
+            var tagtoreplace = {
+                "&": "&amp;",
+                "<": "&lt",
+                ">": "&gt",
+                "=": "",
+                "script": " ",
+                "Script": " ",
+                '"': " ",
+                "`": " "
+            };
+            return this.replace(/[&<>`=]/g, function (tag) {
+                return tagtoreplace[tag] || tag;
+            });
+        }
+
+        function loadcart(){
+            var product = JSON.parse(localStorage.getItem("productincart"));
+            var allbook = JSON.parse(localStorage.getItem("allbooks"));
+            var table = document.getElementById("carttable");
+            var tb = table.getElementsByTagName("tbody")[0];
+            var tr = tb.getElementsByTagName("tr")[1];
+            // console.log(tr);
+            if(product){
+                var html = "";
+                for(i=0; i<allbook.length; i++){
+                    
+                    var ttr = document.createElement("tr");
+                    ttr.setAttribute("id", `tr${i+1}`)
+                    html = `
+                            <td><img src="/archive/books/book-img${product[allbook[i]].image.trim()}" alt=""></td>
+                            <td> 
+                                <p class="title">${product[allbook[i]].title.trim()}</p>
+                                <p>By: ${product[allbook[i]].author.trim()}</p>
+                                <p>Edition: ${product[allbook[i]].edition.trim()}</p>
+                            </td>
+                            <td> ${product[allbook[i]].price} </td>
+                            <td> <span class="inc" onclick="cartrange(${i+1},'${allbook[i]}', 'decrease')">-</span> <input type="text" name="" id="no-of${i+1}" oninput="cartrange(${i+1},'${allbook[i]}', 'auto')" value="${product[allbook[i]].incart} "> <span class="inc" onclick="cartrange(${i+1}, '${allbook[i]}', 'increase')">+</span></td>
+                            <td id="total${i+1}">${parseInt(product[allbook[i]].incart * product[allbook[i]].price)}</td>
+                        
+                    `
+                    tb.insertBefore(ttr, tr);
+                    ttr.innerHTML = html;
+                }
+                carttotal();
+            }
+        }
+        loadcart();
+        
+        function cartrange(index, tag, action){
+            var product = JSON.parse(localStorage.getItem("productincart"));
+            var allbook = JSON.parse(localStorage.getItem("allbooks"));
+            var catno = parseInt(localStorage.getItem("noincart"));
+            var table = document.getElementById("carttable");
+            var tb = table.getElementsByTagName("tbody")[0];
+            if(product){
+                if(action == "decrease"){
+                    if(catno && product[tag].incart-1> 0){
+                        product[tag].incart -=1;
+                        localStorage.setItem("productincart", JSON.stringify(product, null,2));
+                        localStorage.setItem("noincart", catno - 1);
+                        carttotal();
+                        document.getElementById(`no-of${index}`).value = product[tag].incart;
+                        document.getElementById(`total${index}`).innerHTML = product[tag].incart * product[tag].price ;
+                        // console.log("dec")
+                    }
+                    else if(product[tag].incart -1 ==0){
+                        var ans = confirm("Do you want to remove this item");
+                        if(ans==true){
+                            for(let i =0; i<allbook.length; i++){
+                                if(allbook[i]=== tag){
+                                    allbook.splice(i, 1);
+                                }
+                            }
+                            delete product[tag];
+                            document.getElementById(`tr${index}`).style.display = "none";
+                            localStorage.setItem("allbooks", JSON.stringify(allbook, null,2));
+                            localStorage.setItem("productincart", JSON.stringify(product, null,2));
+                            localStorage.setItem("noincart", catno - 1);
+                            carttotal();
+                        }
+                        else{
+                            product[tag].incart = 1;
+                            localStorage.setItem("productincart", JSON.stringify(product, null,2));
+                            // localStorage.setItem("noincart", catno - 1);
+                            carttotal();
+                            document.getElementById(`no-of${index}`).value = product[tag].incart;
+                            document.getElementById(`total${index}`).innerHTML = product[tag].incart * product[tag].price ;
+                        }
+                    }
+                }
+                else if(action== 'increase'){
+                    product[tag].incart +=1;
+                    localStorage.setItem("productincart", JSON.stringify(product, null,2));
+                    localStorage.setItem("noincart", catno + 1);
+                    carttotal();
+                    // console.log("inc");
+                    document.getElementById(`no-of${index}`).value = product[tag].incart;
+                    document.getElementById(`total${index}`).innerHTML = product[tag].incart * product[tag].price ;
+                    
+                }
+                else if(action== 'auto'){
+                    var currentval = parseInt(document.getElementById(`no-of${index}`).value);
+                    // console.log(currentval);
+                    document.getElementById(`total${index}`).innerHTML = currentval * product[tag].price ;
+                    var toincart =parseInt( currentval -  product[tag].incart);
+                    if(toincart ){
+                        if(currentval>0){
+                            product[tag].incart = currentval;
+                            localStorage.setItem("productincart", JSON.stringify(product, null,2));
+                            localStorage.setItem("noincart", catno+ toincart);
+                            carttotal();
+                        }
+                        else if(currentval == 0){
+                            var ans = confirm("Do you want to remove this item");
+                            if(ans==true){
+                                allbook.splice(tag,1);
+                                delete product[tag];
+                                document.getElementById(`tr${index}`).style.display = "none";
+                                localStorage.setItem("allbooks", JSON.stringify(allbook, null,2));
+                                localStorage.setItem("productincart", JSON.stringify(product, null,2));
+                                localStorage.setItem("noincart", catno + toincart);
+                                carttotal();
+                            }
+                            else{
+                                currentval = 1;
+                                document.getElementById(`total${index}`).innerHTML = currentval * product[tag].price ;
+                                toincart =parseInt( currentval -  product[tag].incart);
+                                product[tag].incart = 1;
+                                localStorage.setItem("productincart", JSON.stringify(product, null,2));
+                                localStorage.setItem("noincart", catno + toincart);
+                                carttotal();
+                                document.getElementById(`no-of${index}`).value = product[tag].incart;
+                                document.getElementById(`total${index}`).innerHTML = product[tag].incart * product[tag].price ;
+                            }
+                        }
+                    }
+                }
+                
+                // console.log(product)
+            }
+        }
+
+        function carttotal(){
+            var product = JSON.parse(localStorage.getItem("productincart"));
+            var allbook = JSON.parse(localStorage.getItem("allbooks"));
+            if(product){
+                var total = 0;
+                for(i=0; i<allbook.length; i++){
+                    total += parseInt(product[allbook[i]].incart * product[allbook[i]].price)
+                }
+                document.getElementById("cart-total").innerHTML = total;
+            }
+        }
+
+
+
+        function  contactus(){
+            var name = document.getElementById("contact-name").value.escape();
+            var number = document.getElementById("contact-number").value.escape();
+            var message = document.getElementById("contact-message").value.escape();
+
+           if(name.trim()!= "" && number.trim()!= "" && message.trim() !=""){
+                var urr = "/contact_suggest"
+                var opt = {
+                    method: "POST",
+                    headers: {"content-type": "application/json"},
+                    body: JSON.stringify({
+                        name: name,
+                        number: number,
+                        message: message,
+                        time: moment().format("MMMM Do, YYYY h:mm a")
+                    })
+                }
+
+               fetch(urr, opt).then((res)=>{
+                   if (res.ok) {
+                        name = document.getElementById("contact-name").value = "";
+                        number = document.getElementById("contact-number").value = "";
+                        message = document.getElementById("contact-message").value = "";
+                        return res.json();
+                    }
+                    else {
+                        return res.json();
+                    }
+               }).then((json)=>{
+                    alert(json.message);
+               });
+               
+
+           }
+           else{
+               alert("We really need to hear from you. Pls fill form correctly");
+           }
+
+        }
+
+    </script>
+
+    <script src="/general/js/nav.js"></script>
+    <script src="/general/js/moment.js"></script>
+    <script src="/general/js/index.js"></script>
+    <script src="/general/js/menu.js"></script>
+    <script src="/general/js/search.js"></script>
+    <!-- <script src="/archive/js/archive.js"></script> -->
+    <script src="/archive/js/useful-links.js"></script>
+    <script src="/general/js/footer.js"></script>
+
+</body>
+</html>

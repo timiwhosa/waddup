@@ -1,0 +1,45 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.container{
+    padding-top: 60px;
+    min-height: 80vh;
+}
+.container >div{
+    padding: 0 4vw;
+}
+.container >div:nth-child(1) p{
+    padding: 2vh 0;
+    font-size: 17px;
+}
+#select-school2{
+    width: 220px;
+    height: 40px;
+    font-size: 20px;
+    outline: none;
+    border: 1px solid black;
+    background-color: white;
+    color: black;
+    margin: 20px 0;
+    border-radius: 5px;
+    text-transform: uppercase;
+}
+.container .cbt-sec{
+    display: grid;
+    grid-template-columns: repeat(1fr);
+    grid-auto-rows: minmax(60px, auto);
+    width: 100px;
+    min-width: 250px;
+    grid-gap: 4vw;
+    padding-bottom: 5vh;
+}
+.cbt-sec >p{
+    box-shadow: 0 0 2px #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 20px;
+}

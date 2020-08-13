@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JETbooks || CBT</title>
+    <!-- <link rel="stylesheet" href="/archive/css/archive.css"> -->
+    <link rel="stylesheet" href="/cbt.css">
+    <link rel="stylesheet" href="/general/css/general-style.css">
+    <script src="/general/js/jquery.min.js"></script>
+</head>
+<body>
+    <!-- menu -->
+     <div class="menu">
+        <ul id="menu"></ul>
+    </div>
+    <!-- nav -->
+    <nav id="nav"></nav>
+    <ul id= "searchoption"></ul>
+    <div id="generalinfo"></div>
+    <div class="container">
+        <div class="">
+            <h1>JETbooks CBT SECTION</h1>
+            <p>For Post utme, 100level, 200level and 300level</p>
+            <br>
+            <p>Select your school</p>
+        </div>
+
+        <div class="">
+            <select name="schools" id="select-school2" onchange="institution(this.value) , sec()">
+                <option value="none" id="myschool">Select school</option>
+                <option value="futa">FUTA</option>
+                <option value="oau">OAU</option>
+                <option value="unilag">UNILAG</option>
+            </select>
+        </div>
+
+        <div class="cbt-sec">
+            <p>
+                <a id="postutme">POST UTME</a>
+            </p>
+            <p>
+                <a id="predegree">PRE DEGREE</a>
+            </p>
+            <p>
+                <a id="100level">100 LEVEL</a>
+            </p>
+            <p>
+                <a id="200level">200 LEVEL</a>
+            </p>
+            <p>
+                <a id="300level">300 LEVEL</a>
+            </p>
+        </div>
+    </div>
+
+    <footer></footer>
+    <!-- script-->
+    <script src="/general/js/nav.js"></script>
+    <script src="/general/js/moment.js"></script>
+    <script src="/general/js/index.js"></script>
+    <script src="/general/js/menu.js"></script>
+    <script src="/general/js/footer.js"></script>
+
+    <script>
+        function sec(){
+            var lel1 = document.getElementById("100level");
+            var lel2 = document.getElementById("200level");
+            var lel3 = document.getElementById("300level");
+            var posutme = document.getElementById("postutme")
+            var preegree = document.getElementById("predegree")
+            var school = window.localStorage.getItem("jetbooks-school");
+            if(!school){
+                window.location = "/"
+            }
+            else{
+                lel1.setAttribute("href", `100level?school=${school}`)
+                lel2.setAttribute("href", `200level?school=${school}`)
+                lel3.setAttribute("href", `300level?school=${school}`)
+                posutme.setAttribute("href", `postutme?school=${school}`)
+                preegree.setAttribute("href", `predegree?school=${school}`)
+            }
+        }
+        sec()
+    </script>
+
+
+    
+</body>
+</html>

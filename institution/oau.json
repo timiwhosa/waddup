@@ -1,0 +1,29 @@
+[
+    {
+        "faculty": "smh",
+        "department": [
+            "age",
+            "cpe",
+            "cve",
+            "eee",
+            "ict",
+            "ipe",
+            "mee",
+            "mme",
+            "mne"
+        ]
+    },
+    {
+        "faculty": "sos",
+        "department": [
+            "aec",
+            "are",
+            "aph",
+            "csp",
+            "ewm",
+            "fat",
+            "fst",
+            "fwt"
+        ]
+    }
+]

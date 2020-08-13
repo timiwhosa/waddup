@@ -1,0 +1,22 @@
+[
+  {
+    "page": "home",
+    "visits": 555
+  },
+  {
+    "page": "getstarted",
+    "visits": 28
+  },
+  {
+    "page": "multiple",
+    "visits": 98
+  },
+  {
+    "page": "single",
+    "visits": 87
+  },
+  {
+    "page": "index",
+    "visits": 24
+  }
+]

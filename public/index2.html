@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JET-Archive</title>
+    <!-- <link rel="stylesheet" href="/archive/css/archive.css"> -->
+    <link rel="stylesheet" href="/index.css">
+    <link rel="stylesheet" href="/general/css/general-style.css">
+    <script src="/general/js/jquery.min.js"></script>
+</head>
+<body>
+    <!-- menu -->
+     <div class="menu">
+        <ul id="menu"></ul>
+    </div>
+    <!-- nav -->
+    <nav id="nav"></nav>
+    <ul id= "searchoption"></ul>
+    <div id="generalinfo"></div>
+    <div class="container">
+        <div class="landing" id="index1">
+            <img src="/archive/img/legacy.png" alt="">
+            <div class="cover"></div>
+            <h1>JETbooks</h1>
+            <div class="landing-ctn">
+                <p>
+                    <li>Free pastquestions</li> 
+                    <li>CBT,</li>
+                    <li>TUTORIAL VIDEOS,</li>
+                    <li>CGPA CALCULATOR,</li>
+                    <li>BOOKS FOR SALE,</li>
+                    <li>MARKET PLACE and</li>
+                    <li>Movies</li>
+                </p>
+                <!-- <p>
+                    All at your finger tips, for both students and aspirants of all universities.
+                </p> -->
+                
+            </div>
+            <div class="landing-btn">
+                    <button onclick="scrol1(1)">GET STARTED</button>
+            </div>
+        </div>
+        <div class="login" id="index2">
+            <div class="">
+            <div class="back" onclick="scrol1(2)">&#8592;</div>
+                <div class="login-head">
+                    <p class="marker"></p>
+                    <span onclick="scrol(1)">SIGNUP</span>
+                    <span onclick="scrol(2)">LOGIN</span>
+                </div>
+                <div class="login-ctn">
+                    
+                    <div class="login-div" id="login2">
+                       <form action="/signup" method="post" onsubmit="return false">
+                            <p>
+                                First Name: <br>
+                                <input type="text" name="name" id="signup-name" placeholder="Surname" maxlength="12" required> <br>
+                            </p>
+                            <p>
+                                Email: <br>
+                                <input type="email" name="email" id="signup-email" placeholder="eg: admin@jetbooks.online" required><br>
+                            </p>
+                            <p>
+                                Password: <br>
+                                <input type="password" name="password" id="signup-password" minlength="8" maxlength="100" placeholder="minimum of 8 characters" required>
+                            </p>
+                            <p>
+                                Confirm password: <br>
+                                <input type="password" name="" id="signup-confirmpassword" required>
+                            </p>
+                            <p>
+                                <button type="submit" onclick="signup()">Signup</button>
+                            </p>
+                        </form>
+                    </div>
+                    <script>
+                        String.prototype.escape = function () {
+                            var tagtoreplace = {
+                                "&": "&amp;",
+                                "<": "&lt",
+                                ">": "&gt",
+                                "=": "",
+                                "script": " ",
+                                "Script": " ",
+                                '"': " ",
+                                "`": " "
+                            };
+                            return this.replace(/[&<>`=]/g, function (tag) {
+                                return tagtoreplace[tag] || tag;
+                            });
+                        }
+                        function signup(){
+                            var rees = 0;
+                            var name = document.getElementById("signup-name").value;
+                            var email = document.getElementById("signup-email").value;
+                            var password = document.getElementById("signup-password").value;
+                            var confirmpassword = document.getElementById("signup-confirmpassword").value;
+                            if(name.trim()!="" && email.trim()!=""&& email.includes("@") && email.includes(".") && password!="" && confirmpassword!=""){
+                                if(password == confirmpassword){
+                                    var ur = "/signup";
+                                    var opt = {
+                                        method: "POST",
+                                        headers: {"content-type":"application/json"},
+                                        body: JSON.stringify(
+                                            {
+                                            name: name.escape(),
+                                            email: email.escape(),
+                                            password,
+                                            confirmpassword
+                                        }
+                                        )
+                                    }
+                                    fetch(ur,opt).then((res)=>{
+                                        if(res.ok){
+                                            rees= 1;
+                                            return res.json();
+                                        }
+                                        else{
+                                            return res.json()
+                                        }
+                                    }).then((data)=>{
+                                        if(rees==1){
+                                            window.location = "/category"
+                                        }
+                                        else{
+                                            console.log(data)
+                                            alert(data.message);
+                                        }
+                                    }).catch((err)=>{
+                                        console.log(err);
+                                    })
+                                }
+                                else{
+                                    alert("Password does not match confirm password")
+                                }
+                            }
+                            else{
+                                alert("Pls fill form correctly")
+                            }
+                            // 
+                        }
+                    </script>
+                    <!-- LOGIN -->
+                    <div class="login-div" id="login1">
+                        <form action="/login" method="POST">
+                            Email: <br>
+                            <input type="email" name="email" id="login-email" placeholder="eg: admin@jetbooks.online" required> <br>
+                            Password: <br>
+                            <input type="password" name="" id="login-password" required>
+                            <br>
+                            <p> <button type="submit">Login</button></p>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="features">
+        <h3>FEATURES</h3>
+        <div class="main-block" id="main-block">
+                <a href="/postutme">
+                    <div class="block">
+                        <p class="jet">JETbooks</p>
+                        <div class="block-top">
+                            <div class="block-top-left">
+                                <h1>POST UTME</h1>
+                                <p>Everything about FUTA post-utme.</p>
+                            </div>
+                            <div class="block-top-right">
+                                <img src="/img/core-img/jetbooks-online.png" alt="jetbooks-futa">
+                            </div>
+                        </div>
+                        <div class="block-bottom">
+                            <p>CBT exam, Pastquestion, Advice, Videos, Tutorials</p>
+                        </div>
+                    
+                    </div>
+                </a>
+                <!-- predegree -->
+                <!-- uabs -->
+
+                <!-- archive -->
+                <a href="/archive">
+                    <div class="block">
+                        <p class="jet">JETbooks</p>
+                        <div class="block-top">
+                            <div class="block-top-left">
+                                <h1>ARCHIVE</h1>
+                                <p>Past questions, handouts, textbooks,</p>
+                            </div>
+                            <div class="block-top-right">
+                                <img src="/img/core-img/jetbooks-online.png" alt="jetbooks-futa">
+                            </div>
+                        </div>
+                        <div class="block-bottom">
+                            <p> links, videos and lots more</p>
+                        </div>
+                    
+                    </div>
+                </a>
+                <!-- cgpa -->
+                <a href="/cgpa_cal">
+                    <div class="block">
+                        <p class="jet">JETbooks</p>
+                        <div class="block-top">
+                            <div class="block-top-left">
+                                <h1 class="big">CGPA CALCULATOR</h1>
+                                <p>Calculate your cgpa with easy.</p>
+                            </div>
+                            <div class="block-top-right">
+                                <img src="/img/core-img/jetbooks-online.png" alt="jetbooks-futa">
+                            </div>
+                        </div>
+                        <div class="block-bottom">
+                            <p>Calculate previous cgpa and predict new ones</p>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- otv -->
+                <a href="/online-tutorialvideo">
+                    <div class="block">
+                        <p class="jet">JETbooks</p>
+                        <div class="block-top">
+                            <div class="block-top-left">
+                                <h1 id="otv" class="big">ONLINE TUTORIAL VIDEO</h1>
+                                <p>Well explained tutorial videos.</p>
+                            </div>
+                            <div class="block-top-right">
+                                <img src="/img/core-img/jetbooks-online.png" alt="jetbooks-futa">
+                            </div>
+                        </div>
+                        <div class="block-bottom">
+                            <p>For all subjects in futa</p>
+                        </div>
+                    </div>
+                </a>
+                <!-- fpq -->
+                <a href="/pastquestions">
+                    <div class="block">
+                        <p class="jet">JETbooks</p>
+                        <div class="block-top">
+                            <div class="block-top-left">
+                                <h1 id="otv" class="big">FUTA PASTQUESTION</h1>
+                                <p>Download futa departmental </p>
+                            </div>
+                            <div class="block-top-right">
+                                <img src="/img/core-img/jetbooks-online.png" alt="jetbooks-futa">
+                            </div>
+                        </div>
+                        <div class="block-bottom">
+                            <p>pastquestions. At a click, to your mobile device</p>
+                        </div>
+                    </div>
+                </a>
+                <!-- fc -->
+                <a href="/futa-cinema">
+                    <div class="block">
+                        <p class="jet">JETbooks</p>
+                        <div class="block-top">
+                            <div class="block-top-left">
+                                <h1 id="otv" class="">FUTA CINEMA</h1>
+                                <p>Awesome cinematic experience</p>
+                            </div>
+                            <div class="block-top-right">
+                                <img src="/img/core-img/jetbooks-online.png" alt="jetbooks-futa">
+                            </div>
+                        </div>
+                        <div class="block-bottom">
+                            <p>You can't afford to miss. Get your Ticket now </p>
+                        </div>
+                    </div>
+                </a>
+                <a href="/postutme">
+                    <div class="block">
+                        <div class="block-top2">
+                            <div class="block-top-right">
+                                <img src="/img/core-img/jetbooks-online.png" alt="jetbooks-futa">
+                            </div>
+                            <div class="block-top-left">
+                                <h1>CGPA CALCULATOR</h1>
+                                <p>Everything about FUTA post-utme.</p>
+                            </div>
+                        </div>
+                        <div class="block-bottom">
+                            <p>CBT exam, Pastquestion, Advice, Videos, Tutorials</p>
+                            
+                        </div>
+                    </div>
+                </a>
+                <!--  -->
+                    
+        </div>
+    </div>
+
+    <script>
+        var marker = document.querySelector(".marker");
+        var item = document.querySelectorAll(".login-head span");
+
+        function indicator(e){
+            marker.style.left = e.offsetLeft + "px";
+            marker.style.width = e.offsetWidth + "px";
+        }
+
+        // console.log(item)
+        indicator(item[0]);
+
+        item.forEach(link => {
+            link.addEventListener("click", function (e){
+                indicator(e.target);
+            });
+        });
+
+        function scrol(index){
+            var log1= document.getElementById("login1");
+            var log2= document.getElementById("login2");
+            if(index== 1){
+                log1.style.left = "100%";
+                log2.style.left = "0";
+            }
+            else if(index == 2){
+                log1.style.left = "0";
+                log2.style.left = "-100%";
+            }
+        }
+
+        function scrol1(index){
+            var index1= document.getElementById("index1");
+            var index2= document.getElementById("index2");
+            if(index== 1){
+                index1.style.left = "-100%";
+                index2.style.left = "0";
+            }
+            else if(index == 2){
+                index1.style.left = "0";
+                index2.style.left = "100%";
+            }
+        }
+
+        // function signup(){
+        //     console.log("");
+        // }
+        
+    </script>
+    <!-- script-->
+    <script src="/general/js/nav.js"></script>
+    <script src="/general/js/moment.js"></script>
+    <script src="/general/js/index.js"></script>
+    <script src="/general/js/menu.js"></script>
+
+
+    
+</body>
+</html>

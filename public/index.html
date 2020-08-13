@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JETbooks</title>
+    <!-- <link rel="stylesheet" href="/archive/css/archive.css"> -->
+    <link rel="stylesheet" href="/index.css">
+    <link rel="stylesheet" href="/general/css/general-style.css">
+    <script src="/general/js/jquery.min.js"></script>
+</head>
+<body>
+    <!-- menu -->
+     <div class="menu">
+        <ul id="menu"></ul>
+    </div>
+    <!-- nav -->
+    <nav id="nav"></nav>
+    <ul id= "searchoption"></ul>
+    <div id="generalinfo"></div>
+    <div class="container">
+        <div class="landing" id="index1">
+            <img src="/archive/img/product10.jpg" alt="jetbooks : futa, oau,unilag and all schools pastquestions, cbt and handouts">
+            <div class="cover"></div>
+            <p>Welcome to</p>
+            <h1><span class="big">JET</span>books</h1>
+            <div class="landing-ctn">
+                <p>
+                   Everything a student needs, in one place.
+                </p>
+                <p>
+                    <!-- Free access to pastquestions, handouts, cbt, tutorial videos,and lots more. -->
+                    Pastquestions, Handouts, cbt, tutorial videos, and lots more for Free.
+                </p>
+                <!-- <p>
+                    All at your finger tips, for both students and aspirants of all universities.
+                </p> -->
+                
+            </div>
+            <div class="landing-btn">
+                    <button onclick="scrol1(1)">GET STARTED</button>
+            </div>
+        </div>
+        <div class="login" id="index2">
+            <div class="">
+            <div class="back" onclick="scrol1(2)">&#8592;</div>
+                <div class="login-head">
+                    <p class="marker"></p>
+                    <span onclick="scrol(1)">SIGNUP</span>
+                    <span onclick="scrol(2)">LOGIN</span>
+                </div>
+                <div class="login-ctn">
+                    
+                    <div class="login-div" id="login2">
+                       <form action="/signup" method="post" onsubmit="return false">
+                            <p>
+                                First Name: <br>
+                                <input type="text" name="name" id="signup-name" placeholder="Surname" maxlength="12" required> <br>
+                            </p>
+                            <p>
+                                Email: <br>
+                                <input type="email" name="email" id="signup-email" placeholder="eg: admin@jetbooks.online" required><br>
+                            </p>
+                            <p class="status">
+                                Status: <span></span>
+                                <span><input type="radio" name="status" value="postutme" >Postutme </span>
+                                <span><input type="radio" name="status" value="predegree" >Predegree </span>
+                                <span><input type="radio" name="status" value="de" >DE </span>
+                                <span><input type="radio" name="status" value="staylite" >Staylite </span>
+                            </p>
+                            <p>
+                                Password: <br>
+                                <input type="password" name="password" id="signup-password" minlength="8" maxlength="100" placeholder="minimum of 8 characters" required>
+                            </p>
+                            <p>
+                                Confirm password: <br>
+                                <input type="password" name="" id="signup-confirmpassword" required>
+                            </p>
+                            <p>
+                                <button type="submit" onclick="signup()">Signup</button>
+                            </p>
+                        </form>
+                    </div>
+                    <script>
+                        String.prototype.escape = function () {
+                            var tagtoreplace = {
+                                "&": "&amp;",
+                                "<": "&lt",
+                                ">": "&gt",
+                                "=": "",
+                                "script": " ",
+                                "Script": " ",
+                                '"': " ",
+                                "`": " "
+                            };
+                            return this.replace(/[&<>`=]/g, function (tag) {
+                                return tagtoreplace[tag] || tag;
+                            });
+                        }
+                        function signup(){
+                            var rees = 0;
+                            var status = document.getElementsByName("status");
+                            var category;
+                            for(let t = 0; t<status.length; t++){
+                                if(status[t].checked){
+                                    category = status[t].value;
+                                }
+                            }
+                            var name = document.getElementById("signup-name").value;
+                            var email = document.getElementById("signup-email").value;
+                            var password = document.getElementById("signup-password").value;
+                            var confirmpassword = document.getElementById("signup-confirmpassword").value;
+                            if(name.trim()!="" && category.trim()!="" && email.trim()!=""&& email.includes("@") && email.includes(".com") && password!="" && confirmpassword!=""){
+                                if(password == confirmpassword){
+                                    var ur = "/signup";
+                                    var opt = {
+                                        method: "POST",
+                                        headers: {"content-type":"application/json"},
+                                        body: JSON.stringify(
+                                            {
+                                            name: name.escape(),
+                                            email: email.escape(),
+                                            category: category.escape(),
+                                            password,
+                                            confirmpassword
+                                        }
+                                        )
+                                    }
+                                    fetch(ur,opt).then((res)=>{
+                                        if(res.ok){
+                                            rees= 1;
+                                            return res.json();
+                                        }
+                                        else{
+                                            return res.json()
+                                        }
+                                    }).then((data)=>{
+                                        if(rees==1){
+                                            document.getElementById("features").scrollIntoView();
+                                        }
+                                        else{
+                                            console.log(data)
+                                            alert(data.message);
+                                        }
+                                    }).catch((err)=>{
+                                        console.log(err);
+                                    })
+                                }
+                                else{
+                                    alert("Password does not match confirm password")
+                                }
+                            }
+                            else{
+                                alert("Pls fill form correctly and select a category")
+                            }
+                            // 
+                        }
+                    </script>
+                    <!-- LOGIN -->
+                    <div class="login-div" id="login1">
+                        <form action="/login" method="POST" onsubmit="return false">
+                            Email: <br>
+                            <input type="email" name="email" id="login-email" placeholder="eg: admin@jetbooks.online" required> <br>
+                            Password: <br>
+                            <input type="password" name="" id="login-password" required>
+                            <br>
+                            <p> <button type="submit" onclick="login()">Login</button></p>
+                        </form>
+
+                        <script>
+                             function login(){
+                            var rees = 0;
+                            var email = document.getElementById("login-email").value;
+                            var password = document.getElementById("login-password").value;
+                            if(email.trim()!=""&& email.includes("@") && email.includes(".com") && password!=""){
+                                    var ur = "/login";
+                                    var opt = {
+                                        method: "POST",
+                                        headers: {"content-type":"application/json"},
+                                        body: JSON.stringify(
+                                            {
+                                            email: email.toString().escape(),
+                                            password
+                                        }
+                                        )
+                                    }
+                                    fetch(ur,opt).then((res)=>{
+                                        if(res.ok){
+                                            rees= 1;
+                                            return res.json();
+                                        }
+                                        else{
+                                            return res.json()
+                                        }
+                                    }).then((data)=>{
+                                        if(rees==1){
+                                            document.getElementById("features").scrollIntoView();
+                                        }
+                                        else{
+                                            // console.log(data)
+                                            alert(data.message);
+                                        }
+                                    }).catch((err)=>{
+                                        console.log(err);
+                                    })
+                                
+                            }
+                            else{
+                                alert("Pls fill form correctly")
+                            }
+                            // 
+                        }
+                    </script>
+                        </script>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="most-used">
+        <h2>Most used features</h2>
+        <div class="most-u">
+            <a href="/archive">
+                <div class="mused">
+                    <h3>JETarchive</h3>
+                    <h5 style="text-align: center;">(Pastquestion, handouts)</h5>
+                    <p><span class="subj">Mee101</span>: 1500visits</p>
+                    <p><span class="subj">mts101</span>: 1350visits</p>
+                    <p><span class="subj">mts315</span>: 1440visits</p>
+                    <p><span class="subj">Post-utme</span>: 1170visits</p>
+                </div>
+            </a>
+            <a href="/cbt">
+                <div class="mused">
+                    <h3>CBT</h3>
+                    <p><span class="subj">Post-utme</span>: 1500visits</p>
+                    <p><span class="subj">100level</span>: 1350visits</p>
+                    <p><span class="subj">200level</span>: 1440visits</p>
+                    <p><span class="subj">300level</span>: 1870visits</p>
+                </div>
+            </a>
+            <a id="postutme-cal">
+                <div class="mused">
+                    <h3>Post-utme calculator</h3>
+                    <p>School of engineering</p>
+                    <p>School of agriculture</p>
+                    <p>School of science</p>
+                </div>
+            </a>
+            <a id="cgpa_cal1">
+                <div class="mused">
+                    <h3>Cgpa calculator</h3>
+                    <p><span class="subj">Visits</span>:</p>
+                    <p>5000</p>
+                </div>
+            </a>
+
+        </div>
+    </div>
+    <div class="features" id="features">
+        <h3>FEATURES</h3>
+        <div class="main-block" id="main-block">
+            <div class="blck">
+                <h3>POST UTME</h3>
+                <div>
+                    <span>BLOG</span>
+                    <ul>
+                        <a href="/blog/postutme/10-things-to-do-to-pass-futa-postutme"><li>10 things to do to pass futa postutme</li></a>
+                        <a href="/blog/postutme/futa-departmental-cut-off"><li>futa departmental cut off</li></a>
+                        <a href="/blog/postutme/about-futa"><li>About Futa</li></a>
+                        <a href="/blog/postutme/futa-postutme"><li>Futa Post utme</li></a>
+                    </ul>
+                </div>
+                <div class="">
+                    <span><a href="/postutme/calculator">POST UTME SCORE CALCULATOR</a></span>
+                </div>
+                <div class="">
+                    <span><a href="/cbt/postutme">CBT</a></span>
+                </div>
+                
+                <div class="">
+                    <span><a href="/archive/section/postutme">PAST QUESTIONS</a></span>
+                </div>
+            </div>
+            
+
+            <div class="blck">
+                <h3>PRE-DEGREE</h3>
+                <div class="">
+                    <span><a id="predegree">CBT</a></span>
+                </div>
+                <div class="">
+                    <span><a href="/archive/section/predegree">PAST QUESTIONS</a></span>
+                </div>
+            </div>
+            <div class="blck">
+                <h3>UABS/ DIRECT ENTRY</h3>
+                <div class="">
+                    <span><a href="/archive/section/uabs">PAST QUESTIONS</a></span>
+                </div>
+            </div>
+            
+            
+            <div class="blck">
+                <h3>STAYLITE</h3>
+                <div>
+                    <span>BLOG</span>
+                    <ul>
+                        <a href="/blog/postutme/how-to-pass-futa-postutme"><li>How to pass futa postutme</li></a>
+                        <a href="/blog/postutme/Futa-cut-off-marks"><li>Futa cut off marks</li></a>
+                        <a href="/blog/postutme/Subject-combination-in-futa"><li>Subject combination in futa</li></a>
+                    </ul>
+                </div>
+                <div>
+                    <span>CBT</span>
+                    <ul>
+                        <a id="100level"><li>100LEVEL</li></a>
+                        <a id="200level"><li>200level</li></a>
+                        <a id="300level"><li>300level</li></a>
+                    </ul>
+                </div>
+                <div class="">
+                    <span><a id="cgpa_cal2">CGPA CALCULATOR</a></span>
+                </div>
+                
+                <div class="">
+                    <span><a href="/archive">PAST QUESTIONS</a></span>
+                </div>
+            </div>
+                <!-- <a href="/cbt">
+                    <div class="block">
+                        <p class="jet">JETcbt</p>
+                        <div class="block-top">
+                            <div class="block-top-left">
+                                <h1>CBT/CBE</h1>
+                                <p>Post utme, pre-degree, 100level,</p>
+                            </div>
+                            <div class="block-top-right">
+                                <img src="/img/core-img/jetbooks-online.png" alt="jetbooks-futa">
+                            </div>
+                        </div>
+                        <div class="block-bottom">
+                            <p>200level and 300 level CBT/CBE</p>
+                        </div>
+                    
+                    </div>
+                </a> -->
+                <!-- predegree -->
+                <!-- uabs -->
+
+                <!-- archive -->
+                <!-- <a href="/archive">
+                    <div class="block">
+                        <p class="jet">JETarchive</p>
+                        <div class="block-top">
+                            <div class="block-top-left">
+                                <h1>ARCHIVE</h1>
+                                <p>Past questions, handouts, textbooks,</p>
+                            </div>
+                            <div class="block-top-right">
+                                <img src="/img/core-img/jetbooks-online.png" alt="jetbooks-futa">
+                            </div>
+                        </div>
+                        <div class="block-bottom">
+                            <p> links, videos and lots more</p>
+                        </div>
+                    
+                    </div>
+                </a> -->
+                <!-- cgpa -->
+                <!-- <a href="/cgpa_cal">
+                    <div class="block">
+                        <p class="jet">JETcgpa</p>
+                        <div class="block-top">
+                            <div class="block-top-left">
+                                <h1>CGPA CALCULATOR</h1>
+                                <p>Calculate your cgpa with easy.</p>
+                            </div>
+                            <div class="block-top-right">
+                                <img src="/img/core-img/jetbooks-online.png" alt="jetbooks-futa">
+                            </div>
+                        </div>
+                        <div class="block-bottom">
+                            <p>Calculate previous cgpa and predict new ones</p>
+                        </div>
+                    </div>
+                </a> -->
+
+                <!-- otv -->
+                <!-- <a href="/archive/videos">
+                    <div class="block">
+                        <p class="jet">JETtube</p>
+                        <div class="block-top">
+                            <div class="block-top-left">
+                                <h1 id="otv">TUTORIAL VIDEO</h1>
+                                <p>Well explained tutorial videos.</p>
+                            </div>
+                            <div class="block-top-right">
+                                <img src="/img/core-img/jetbooks-online.png" alt="jetbooks-futa">
+                            </div>
+                        </div>
+                        <div class="block-bottom">
+                            <p>For all subjects</p>
+                        </div>
+                    </div>
+                </a>
+                <a href="/jetmovies">
+                    <div class="block">
+                        <p class="jet">JETmovies</p>
+                        <div class="block-top">
+                            <div class="block-top-left">
+                                <h1 id="otv" class="">CINEMA</h1>
+                                <p>Awesome cinematic experience</p>
+                            </div>
+                            <div class="block-top-right">
+                                <img src="/img/core-img/jetbooks-online.png" alt="jetbooks-futa">
+                            </div>
+                        </div>
+                        <div class="block-bottom">
+                            <p>You can't afford to miss. Get your Ticket now </p>
+                        </div>
+                    </div>
+                </a> -->
+                
+                <!-- fpq -->
+                <!-- <a href="/jetmarket">
+                    <div class="block">
+                        <p class="jet">JETmarket</p>
+                        <div class="block-top">
+                            <div class="block-top-left">
+                                <h1 id="otv" >MARKET</h1>
+                                <p>Your one stop shopping destination </p>
+                            </div>
+                            <div class="block-top-right">
+                                <img src="/img/core-img/jetbooks-online.png" alt="jetbooks-futa">
+                            </div>
+                        </div>
+                        <div class="block-bottom">
+                            <p>fantastic deals and lots more..</p>
+                        </div>
+                    </div>
+                </a> -->
+                <!-- fc -->
+                <!-- <a href="/postutme">
+                    <div class="block">
+                        <div class="block-top2">
+                            <div class="block-top-right">
+                                <img src="/img/core-img/jetbooks-online.png" alt="jetbooks-futa">
+                            </div>
+                            <div class="block-top-left">
+                                <h1>CGPA CALCULATOR</h1>
+                                <p>Everything about FUTA post-utme.</p>
+                            </div>
+                        </div>
+                        <div class="block-bottom">
+                            <p>CBT exam, Pastquestion, Advice, Videos, Tutorials</p>
+                            
+                        </div>
+                    </div>
+                </a> -->
+                <!--  -->
+                    
+        </div>
+    </div>
+    <div class="events">
+        <h2>UPCOMING EVENTS</h2>
+        <div class="event-div">
+            <!-- <ul>
+                <li></li>
+                <li>Update on JETarchive</li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul> -->
+            <div class="event event1">
+                
+                <div class="evnt">
+                        JETmarket official launch
+                    </div>
+                    <div class="evntdes">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos sit minus laboriosam ipsam animi at, quia, harum cupiditate vel odit fuga assumenda perspiciatis explicabo? Adipisci perspiciatis dignissimos accusamus officiis facilis corrupti, quasi perferendis hic magni suscipit! Quaerat illo quia a.
+                    </div>
+            </div>
+            <div class="event21">
+                <div class="event event2">
+                    <div class="evnt">
+                        100 level CBT competition
+                    </div>
+                    <div class="evntdes">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos sit minus laboriosam ipsam animi at, quia, harum cupiditate vel odit fuga assumenda perspiciatis explicabo? Adipisci perspiciatis dignissimos accusamus officiis facilis corrupti, quasi perferendis hic magni suscipit! Quaerat illo quia a.
+                    </div>
+                </div>
+                <div class="event event3">
+                    
+                    <div class="evnt">
+                        FUTA SUG election
+                    </div>
+                    <div class="evntdes">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos sit minus laboriosam ipsam animi at, quia, harum cupiditate vel odit fuga assumenda perspiciatis explicabo? Adipisci perspiciatis dignissimos accusamus officiis facilis corrupti, quasi perferendis hic magni suscipit! Quaerat illo quia a.
+                    </div>
+                </div>
+            </div>
+            <div class="event event4">
+                
+                <div class="evnt">
+                        NXT cinema film show
+                    </div>
+                    <div class="evntdes">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos sit minus laboriosam ipsam animi at, quia, harum cupiditate vel odit fuga assumenda perspiciatis explicabo? Adipisci perspiciatis dignissimos accusamus officiis facilis corrupti, quasi perferendis hic magni suscipit! Quaerat illo quia a.
+                    </div>
+            </div>
+            <div class="event51">
+                <div class="event event5">
+                    
+                    <div class="evnt">
+                        SAAT presidential election
+                    </div>
+                    <div class="evntdes">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos sit minus laboriosam ipsam animi at, quia, harum cupiditate vel odit fuga assumenda perspiciatis explicabo? Adipisci perspiciatis dignissimos accusamus officiis facilis corrupti, quasi perferendis hic magni suscipit! Quaerat illo quia a.
+                    </div>
+                </div>
+                <div class="event event6">
+                   
+                    <div class="evnt">
+                         SEET presidential election
+                    </div>
+                    <div class="evntdes">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos sit minus laboriosam ipsam animi at, quia, harum cupiditate vel odit fuga assumenda perspiciatis explicabo? Adipisci perspiciatis dignissimos accusamus officiis facilis corrupti, quasi perferendis hic magni suscipit! Quaerat illo quia a.
+                    </div>
+                </div>
+            </div>
+            <div class="event event7">
+                
+                <div class="evnt">
+                        SOS presidential election
+                    </div>
+                    <div class="evntdes">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos sit minus laboriosam ipsam animi at, quia, harum cupiditate vel odit fuga assumenda perspiciatis explicabo? Adipisci perspiciatis dignissimos accusamus officiis facilis corrupti, quasi perferendis hic magni suscipit! Quaerat illo quia a.
+                    </div>
+            </div>
+            <div class="event event8">
+                
+                <div class="evnt">
+                        Update on jetmovies
+                    </div>
+                    <div class="evntdes">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos sit minus laboriosam ipsam animi at, quia, harum cupiditate vel odit fuga assumenda perspiciatis explicabo? Adipisci perspiciatis dignissimos accusamus officiis facilis corrupti, quasi perferendis hic magni suscipit! Quaerat illo quia a.
+                    </div>
+            </div>
+            <div class="event event9">
+                
+                <div class="evnt">
+                        OAU SUG election
+                    </div>
+                    <div class="evntdes">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos sit minus laboriosam ipsam animi at, quia, harum cupiditate vel odit fuga assumenda perspiciatis explicabo? Adipisci perspiciatis dignissimos accusamus officiis facilis corrupti, quasi perferendis hic magni suscipit! Quaerat illo quia a.
+                    </div>
+            </div>
+        </div>
+    </div>
+    <div class="team">
+        <h2>MEET TEAM JETbooks</h2>
+        <div class="team-ctn">
+            <a href="">
+                <div class="">
+                    <img src="/img/team/team1.jpg" alt="team jetbooks ">
+                    <p>
+                        <span class="b">@ifo_tim</span>
+                        <span>consectetur adipisicing elit. Iure a et natus adipisci ab fugit?</span>
+                    </p>
+                </div>
+            </a>
+            <a href="">
+                <div class="">
+                    <img src="/img/team/team2.jpg" alt="team jetbooks ">
+                    <p>
+                        <span class="b">Lorem ipsum dolor sit </span>
+                        <span>consectetur adipisicing elit. Iure a et natus adipisci ab fugit?</span>
+                    </p>
+                </div>
+            </a>
+             <a href="">
+                <div class="">
+                    <img src="/img/team/team3.jpg" alt="team jetbooks ">
+                    <p>
+                        <span class="b">Lorem ipsum dolor sit</span>
+                        <span>consectetur adipisicing elit. Iure a et natus adipisci ab fugit?</span>
+                    </p>
+                </div>
+            </a>
+             <a href="">
+                <div class="">
+                    <img src="/img/team/team4.jpg" alt="team jetbooks ">
+                    <p>
+                        <span class="b">Lorem ipsum dolor sit</span>
+                        <span>consectetur adipisicing elit. Iure a et natus adipisci ab fugit?</span>
+                    </p>
+                </div>
+            </a>
+        </div>
+    </div>
+    <div class="contributors">
+        <h2>CONTRIBUTORS</h2>
+        <h3>All those who contributed to the success of JETbooks</h3>
+        <div class="contrib">
+            <div class="">
+                <img src="/img/contributors/contrib1.jpg" alt="jetbooks contributors">
+                <span class="b">Lorem ipsum dolor:</span>
+                <hr>
+                <p>
+                    Lorem ipsum dolor: sit amet, consectetur adipisicing elit. Iure a et natus adipisci ab fugit?
+                </p>
+                
+            </div>
+            <div class="">
+                <img src="/img/contributors/contrib2.jpg" alt="jetbooks contributors">
+                <span class="b">Lorem ipsum dolor: sit amet, consectetur </span>
+                <hr>
+                <p>
+                    Lorem ipsum dolor: sit amet, consectetur adipisicing elit. Iure a et natus adipisci ab fugit?
+                </p>
+                
+            </div>
+            <div class="">
+                <img src="/img/contributors/contrib3.jpg" alt="jetbooks contributors">
+                <span class="b">Lorem ipsum dolor:</span>
+                <hr>
+                <p>
+                    Lorem ipsum dolor: sit amet, consectetur adipisicing elit. Iure a et natus adipisci ab fugit?
+                </p>
+                
+            </div>
+            <div class="">
+                <a href="/contributors"> see  all  > </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="about" id="about">
+            <h2>About Us </h2>
+            <div class="abd">
+                <div class="abdr">
+                    <img src="/img/core-img/jetbooks.jpg" alt="JETbooks || JETarchive: university pastquestions">
+                </div>
+                <div class="abdl">
+                    <div class="">
+                        <p>
+                            <span class="b">JET</span>brand is an exciting and engaging student platform, providing students with ease, information and credibility.
+                        </p> 
+                        <p>
+                            We have <span class="b">JETbooks</span>, <span class="b">JETmovies</span>, <span class="b">JETmarket</span> and many more to come. Each segment in their own way, providing students with productivity and
+                            ease to the way students do things through ACCESS and AWARENESS.
+                        </p>
+                        <p><a href="/about"><button>See more</button></a></p>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        <div class="partners">
+            <h2>PARTNERING SCHOOLS</h2>
+            <div class="ptn">
+                <a href="https://futa.edu.ng">
+                    <img src="/img/logo/futalogo.png" alt="futa : federal university of technology akure">
+                    FUTA
+                </a>
+                <a href="">
+                    <img src="/img/logo/futalogo.png" alt="">
+                    FUTA
+                </a>
+                <a href="">
+                    <img src="/img/logo/futalogo.png" alt="">
+                    FUTA
+                </a>
+                <a href="">
+                    <img src="/img/logo/futalogo.png" alt="">
+                    FUTA
+                </a>
+            </div>
+        </div>
+        <footer></footer>
+    <script>
+        var marker = document.querySelector(".marker");
+        var item = document.querySelectorAll(".login-head span");
+
+        function indicator(e){
+            marker.style.left = e.offsetLeft + "px";
+            marker.style.width = e.offsetWidth + "px";
+        }
+
+        // console.log(item)
+        indicator(item[0]);
+
+        item.forEach(link => {
+            link.addEventListener("click", function (e){
+                indicator(e.target);
+            });
+        });
+
+        function scrol(index){
+            var log1= document.getElementById("login1");
+            var log2= document.getElementById("login2");
+            if(index== 1){
+                log1.style.left = "105%";
+                log2.style.left = "0";
+                
+            }
+            else if(index == 2){
+                log1.style.left = "0";
+                log2.style.left = "-100%";
+            }
+        }
+
+        function scrol1(index){
+            var index1= document.getElementById("index1");
+            var index2= document.getElementById("index2");
+            if(index== 1){
+                index1.style.left = "-100%";
+                index2.style.left = "0";
+                // document.body.scrollTop = 0;
+            }
+            else if(index == 2){
+                index1.style.left = "0";
+                index2.style.left = "100%"; 
+                // document.body.scrollTop = 0;
+            }
+        }
+
+        function sec(){
+            var lel1 = document.getElementById("100level");
+            var lel2 = document.getElementById("200level");
+            var lel3 = document.getElementById("300level");
+            var lel4 = document.getElementById("cgpa_cal1");
+            var lel5 = document.getElementById("cgpa_cal2");
+            var lel6 = document.getElementById("postutme-cal");
+            // var posutme = document.getElementById("postutme")
+            var preegree = document.getElementById("predegree")
+            var school = window.localStorage.getItem("jetbooks-school");
+            if(!school){
+                var intv = setInterval(sec, 1000);
+            }
+            else{
+                clearInterval(intv);
+                lel1.setAttribute("href", `/cbt/100level?school=${school}`)
+                lel2.setAttribute("href", `/cbt/200level?school=${school}`)
+                lel3.setAttribute("href", `/cbt/300level?school=${school}`)
+                lel4.setAttribute("href", `/cgpa_cal?school=${school}`)
+                lel5.setAttribute("href", `/cgpa_cal?school=${school}`)
+                lel6.setAttribute("href", `/postutme/calculator?school=${school}`)
+                // posutme.setAttribute("href", `postutme?school=${school}`)
+                preegree.setAttribute("href", `/cbt/predegree?school=${school}`)
+            }
+        }
+        // 
+        sec()
+
+        // function signup(){
+        //     console.log("");
+        // }
+        
+    </script>
+    <!-- script-->
+    <script src="/general/js/nav.js"></script>
+    <script src="/general/js/moment.js"></script>
+    <script src="/general/js/index.js"></script>
+    <script src="/general/js/menu.js"></script>
+    <script src="/general/js/footer.js"></script>
+
+
+    
+</body>
+</html>

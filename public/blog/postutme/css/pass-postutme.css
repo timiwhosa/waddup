@@ -1,0 +1,84 @@
+*{
+    margin: 0 ;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body{
+    width: 100vw;
+    margin: 0 ;
+    padding: 0;
+}
+.container{
+    display: block;
+    margin-top: 75px;
+}
+.container a{
+    text-decoration: underline;
+}
+h2{
+    text-align: center;
+    padding: 20px 0 10px 0;
+}
+.intro, .con{
+    font-size: 18px;
+    line-height: 30px;
+}
+.container > div{
+    margin: 0 10%;
+    padding: 30px 0;
+}
+.container div p{
+    font-size: 18px;
+    line-height: 30px;
+}
+.container div h3{
+    padding: 10px 0;
+}
+.imgg{
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(2,1fr);
+}
+.imgg img{
+    width: 96%;
+    height: 147px;
+    margin:10px;
+    border: 1px solid #000000;
+}
+#other-post ul li{
+    margin-left: 10px;
+    padding: 10px 0;
+    line-height: 30px;
+}
+
+@media screen and (max-width: 480px){
+    .container > div{
+        margin: 0 10% 0 13px;
+        padding: 30px 0;
+    }
+    .intro, .con{
+        font-size: 15px;
+        line-height: 30px;
+    }
+    .container div p{
+        font-size: 15px;
+        line-height: 30px;
+    }
+    #other-post h2{
+        text-align: left;
+    }
+    #other-post ul li{
+        margin-left: 10px;
+        line-height: 30px;
+    }
+    .imgg{
+        display: block;
+        width: 100%;
+    }
+    .imgg img{
+        width: 90%;
+        height: 108px;
+        margin:10px;
+}
+}

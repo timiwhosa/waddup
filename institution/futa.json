@@ -1,0 +1,29 @@
+[
+    {
+        "faculty":"seet",
+        "department":[
+            "age",
+            "cpe",
+            "cve",
+            "eee",
+            "ict",
+            "ipe",
+            "mee",
+            "mme",
+            "mne"
+        ]
+    },
+    {
+        "faculty": "saat",
+        "department": [
+            "aec",
+            "are",
+            "aph",
+            "csp",
+            "ewm",
+            "fat",
+            "fst",
+            "fwt"
+        ]
+    }
+]

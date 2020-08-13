@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="free download of FUTA past-questions">
+    <meta name="keywords" content="Post-Utme, futa post utme, post utme, post utme pastquestions, post utme cbt, jetbooks, pq, pqs, pq's, past questions, pastquestions, futapastquestions, futa pastquestions, jet, jetbooks, jet-brand, jetbrand, futa past questions , free past questions, questions">
+    <meta name="author" content="Jet-brand">
+    <title>FUTA POST-UTME |JETbooks</title>
+    <link rel="stylesheet" href="/blog/postutme/css/futa-postutme.css">
+    <link rel="stylesheet" href="/general/css/general-style.css">
+    <script src="/general/js/jquery.min.js"></script>
+    </head>
+<body>
+   <!-- menu -->
+     <div class="menu">
+        <ul id="menu"></ul>
+    </div>
+    <!-- nav -->
+    <nav id="nav"></nav>
+    <ul id= "searchoption"></ul>
+    <div id="generalinfo"></div>
+    <div class="container">
+        <div class="top">
+            <p>Futa post utme usually comes up around july and it cost around N2,000 to purchase the form and around N3000 or less, for past question.</p>
+            <p>Now truth be told, Futa post utme is not hard, it has never been hard and even futa is not about being tough/hard. Futa is mainly about your ability to think, and solve problems fast</p>
+        </div>
+    <img src="/blog/postutme/img/school-of-engineering-futa.jpg" alt="school of engineering futa" style="margin-left: 15%; width: 70%;height: auto;">
+    <div class="">
+        <p>Going straight to the point,</p>
+        <p>Date: currently not fixed but usually july,</p>
+        <p>Cost: total N5000 (N2000 for registration and N3000 for past-questions).</p>
+        <br>
+        <div class="fp-reqm">
+            <h2>Futa Post-Utme Requirements:</h2>
+            <p><span>Subject combination</span> : check out our blog post on that <a href="/blog/postutme/futa-subject-combination">here.</a></p>
+            <p><span>O'level requirement</span>: minimum of five(5) credit passes including english and mathematics</p>
+            <p><span>Jamb score</span>: 180 and above.</p>
+            <p><span>Accept Direct Entry</span>: Yes.</p>
+            <p><span>External exams</span>: Waec,Neco, Jupeb, IJMB, Poly/ND</p>
+        </div>
+        <div class="fp-exam">
+            <h2>Futa Post-Utme Exam</h2>
+            <p><span>Date</span>: Not fixed yet, but based on previous years, it comes up around JULY</p>
+            <p><span>Duration</span>: 4 days , more details <a href="#schedule">below</a></p>
+            <p><span>Number of subjects</span>: 5 (your jamb combination and general paper).</p>
+            <p><span>Exam length</span>: 30min (<a href="/cbt/postutme">practise now on our cbt platform for free</a>)</p>
+            <p><span>Number of questions</span>: 5 questions from each subject, total of 25 questions.</p>
+            <p><span>Mark per question</span>: 4marks (ie, each question is 4marks.... now you know, read o!!)</p>
+            <p><span>Score</span>: over 100 ie 25 x 4marks</p>
+            <p><span>% of total</span>: 50% (your post utme accounts for 50% of your total point/ cut off)</p>
+        </div>
+        <div class="reg">
+            <h2>How to register:</h2>
+            <p>- Visit <a href="www.futa.edu.ng">www.futa.edu.ng</a></p>
+            <p>- Login with your utme number,</p>
+            <p>- Generate RRR and make payment using REMITA (don't pay on any other platform o)</p>
+            <p>- Confirm your payment on futa official website,</p>
+            <p>- Finally, fill the Post-Utme form online and Print out copies for documentation.</p>
+        </div>
+        <p>also, your are required to upload your O,LEVEL result before the speculated deadline and the deadline will not be extended.</p>
+
+        <div id="schedule">
+            From previous years, the exam is scheduled as follows:
+            <div class="sch">
+               <img src="/blog/postutme/img/futa-postutme-schedule.png" alt="futa postutme schedule.png">
+            </div>
+        </div>
+    </div>
+    <div id="other-post">
+        <h2>Useful blog post</h2>
+        <ul>
+            <li>- <a href="/blog/postutme/about-futa">About Futa</a></li>
+            <li>- <a href="/blog/postutme/10-things-to-do-to-pass-futa-postutme">10 things to do to pass Futa Post-Utme</a></li>
+            <li>- <a href="/postutme/calculator">Futa post utme calculator</a></li>
+            <li>- <a href="/futa-postutme/pastquestions">Futa Past questions</a></li>
+            <li>- <a href="/blog/postutme/futa-departmental-cut-off">Futa departmental cut off marks and how it is derieved</a></li>
+            <li>- <a href="/blog/postutme/futa-subject-combination">Futa subject combination and number of sitting</a></li>
+        </ul>
+    </div>
+    </div>
+    
+    <div class="site-stats"></div>
+    <div class="comments" id="comments"></div>   
+    <footer></footer>
+
+    <script src="/general/js/nav.js"></script>
+    <script src="/general/js/index.js"></script>
+    <script src="/general/js/menu.js"></script>
+    <script src="/general/js/search.js"></script>
+    <script src="/general/js/site-stats.js"></script>
+
+
+     <script>
+        var views = document.getElementById("views");
+
+var viewsdata ;
+        var comment ;
+window.onload = function(){
+    
+const uri = "/comment";
+
+let h1 = new Headers();
+h1.append("Accept", "application/json");
+let req1 = new Request(uri, {
+    method: "GET",
+    headers: h1,
+    mode: "cors"
+});
+
+fetch(req1).then((res) => {
+    if (res.ok) {
+        return res.json();
+    }
+    else {
+        new Error("not bad");
+    }
+}).then((jsondata) => {
+    comment = jsondata;
+    // console.log(JSON.stringify(comment));
+    loadcomment(comment);
+     
+}).catch((err) => {
+    console.log(err);
+}); 
+
+
+ const url = "/homevisits";
+    let h = new Headers();
+    h.append("Accept", "application/json");
+    let req = new Request(url,{
+        method:"GET",
+        headers: h,
+        mode: "cors"
+    });
+
+    fetch(req).then((res)=>{
+        if(res.ok){
+            return res.json();
+        }
+    }).then((data)=>{
+        viewsdata = data;
+        views.innerText = viewsdata.visits;
+
+    }).catch((err)=>{
+        console.log(err);
+    });
+}
+</script>
+
+    <script src="/general/js/comment.js"></script>
+    <script src="/general/js/moment.js"></script>
+    <script src="/general/js/footer.js"></script>
+
+    <script>
+        function showmore(he){
+            // console.log(he.id.id);
+            document.getElementById(`${he.id}`).style.height = "auto";
+            document.getElementById(`plus${he.id}`).style.display = "none";
+            document.getElementById(`minus${he.id}`).style.display = "inline-block";
+        }
+        function showless(he){
+            document.getElementById(`${he.id}`).style.height = "70px";
+            document.getElementById(`plus${he.id}`).style.display = "inline-block";
+            document.getElementById(`minus${he.id}`).style.display = "none";
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="free download of FUTA past-questions">
+    <meta name="keywords" content="Post-Utme, futa post utme, post utme, post utme pastquestions, post utme cbt, jetbooks, pq, pqs, pq's, past questions, pastquestions, futapastquestions, futa pastquestions, jet, jetbooks, jet-brand, jetbrand, futa past questions , free past questions, questions">
+    <meta name="author" content="Jet-brand">
+    <title>FUTA POST-UTME |JETbooks</title>
+    <link rel="stylesheet" href="/cbt/postutme/css/free-mode-style.css">
+    <link rel="stylesheet" href="/general/css/general-style.css">
+    <script src="/general/js/jquery.min.js"></script>
+</head>
+<body>
+    <!-- menu -->
+     <div class="menu">
+        <ul id="menu"></ul>
+    </div>
+    <!-- nav -->
+    <nav id="nav"></nav>
+    <ul id= "searchoption"></ul>
+    <div id="generalinfo"></div>
+    <div class="container">
+        <div class="top">
+            <div class="top-top">
+                <h1>GET STARTED</h1>
+                <div class="top-top-div">
+                    <div class="top-top-txt1">
+                        You can practise either; <br> 
+                        <strong><a href="#single-mode">Single mode:</a></strong>  Which allows you to practise a particular subject for 5min(each practise, <a href="/blog/futa-postutme">FUTA POST-UTME</a> last for 30min, Hence each question requires about 5min+ to complete. ) <span id="or">OR</span>
+                        <strong><a href="#multiple-mode">Multiple mode:</a></strong>  Which allows you to practise five(5) subject for 30min (each practise).
+                     <br> <br> 
+                     <!-- Know that You can also set the time as you please, Pause the exam and continue from where you stopped at anytime.  -->
+                    </div>
+                    <div class="top-top-img">
+                    <a href="https://futaa.edu.ng"><img src="/cbt/img/banner/futalogo.png" alt="futa-logo"> </a>
+                    <a href="https://wa.me/2348140766866?text=Hi%20TeamJETbooks%20%0AI'm%20a%20futaAspirant%20%20applying%20to%20the%20department%20of__%20%0AMy%20name%20is__"><img src="/cbt/img/banner/jetbooks-online.png" alt="jetbooks-logo"></a>
+                    </div>
+                </div> 
+            </div>
+            <div class="top-bottom-txt1">
+                    <h3>NOTE</h3>
+                    <ul>
+                        <li>
+                            As said earlier, this website is part of JETbooks ( <a href="http://futapastquestions.com">futapastquestions.com</a> ) 
+                            contribution to the fight against <a href="https://ncdc.ng">corona</a>, students are encouraged to plan, prepare and pray as we all await resumption.
+                        </li>
+                        <li>
+                            If you notice any problem, have a challenge or contribution,You can kindly reach us at <a href="/contact">JETbooks-Contact</a> <br> or
+                            leave us a comment below in the <a href="#comments">Comment Section</a>.
+                        </li>
+                    </ul>
+                   </div>
+        </div>
+        <!-- single-mode -->
+        <span class="mod" id="single-mode"></span>
+        <div class="single-mode" >
+            <h3>SINGLE MODE:</h3>
+            <h5>Click on any course to start</h5>
+            <ul>
+                
+                <li>BIOLOGY  <a href="/single/postutme?subject=biology"> <span id="start">START</span></a></li>
+                <li>CHEMISTRY <a href="/single/postutme?subject=chemistry"> <span id="start">START</span></a></li>
+                <li>ECONOMICS<a href="/single/postutme?subject=economics"> <span id="start">START</span></a></li>
+                <li>ENGLISH <a href="/single/postutme?subject=english"> <span id="start">START</span></a></li>
+                <li>GENERAL PAPER <a href="/single/postutme?subject=generalpaper"> <span id="start">START</span></a></li>
+                <li>GEOGRAPHY <a href="/single/postutme?subject=geogrephy"> <span id="start">START</span></a></li>
+                <li>MATHEMATICS <a href="/single/postutme?subject=mathematics"> <span id="start">START</span></a></li>
+                <li>PHYSICS <a href="/single/postutme?subject=physics"> <span id="start">START</span></a></li>
+                
+            </ul>
+        </div>
+        <!-- multiple-mode -->
+        <span class="mod" id="multiple-mode"></span>
+        <div class="multiple-mode" >
+            <h3>MULTIPLE MODE</h3>
+            <!-- <h5>Here you are to select 3 other subjects and click start, general paper is compulsory and has already been selected for you</h5> -->
+            <h5>Select any four(4) subjects based on your Jamb combination and General paper <br> Scroll to the bottom and Click START when ready</h5>
+            <form method="GET" action="/multiple/postutme"  id="select-subject">
+                <p>  <span class="mul-subject">BIOLOGY</span><input type="checkbox" name="multiple" value="biology" id="agric11"></p>
+                <p>  <span class="mul-subject">CHEMISTRY</span><input type="checkbox" name="multiple" value="chemistry" id="agric22"></p>
+                <p>  <span class="mul-subject">ECONOMICS</span><input type="checkbox" name="multiple" value="economics" id="economics"></p>
+                <p>  <span class="mul-subject">ENGLISH</span><input type="checkbox" name="multiple" value="english" id="agric33"></p>
+                <p>  <span class="mul-subject">GENERAL PAPER</span><input type="checkbox" name="multiple" value="generalpaper"id="agric44"></p>
+                <p>  <span class="mul-subject">GEOGRAPHY</span><input type="checkbox" name="multiple" value="geography" id="geography"></p>
+                <p>  <span class="mul-subject">MATHEMATICS</span><input type="checkbox" name="multiple" value="mathematics" id="agric55"></p>
+                <p>  <span class="mul-subject">PHYSICS</span><input type="checkbox" name="multiple" value="physics" id="agric66"></p>
+                <!-- <p>  <span class="mul-subject">AGRICULTURAL SCIENCE</span><input type="checkbox" name="multiple" value="generalpaper" id="agric77"></p>
+                <p>  <span class="mul-subject">PHYSICS</span><input type="checkbox" name="multiple" value="physics" id="phys1"></p> -->
+                
+                <div id="error"></div>
+                <div id="save">
+                    <input type="submit" value="START" name="" id="Save">
+                </div>
+            </form>
+
+            <!-- onsubmit=" return localStorage.setItem('go',this.elements.namedItem('multiple').value)" -->
+        </div>
+
+        <!-- <div class="paid-version-plan">
+            <h3>CHECK OUT OUR PAID VERSION FOR AS LOW AS #10</h3>
+            <div class="paid-version-plan-ctn">
+                <div class="plan1">
+                    <h4>#10</h4>
+                    <p>PRACTICE TIME: 1DAY</p>
+                    <div class="plan-features">
+                        <h4>FEATURES</h4>
+                        <ul>
+                            <li>correction to each question</li>
+                            <li>correction to each question</li>
+                            <li>correction to each question</li>
+                            <li>correction to each question</li>
+                            <li>correction to each question</li>
+                            <li>correction to each question</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="plan2">
+                    <h4>#50</h4>
+                    <p>PRACTICE TIME: 6DAY</p>
+                    <div class="plan-features">
+                        <h4>FEATURES</h4>
+                        <ul>
+                            <li>correction to each question</li>
+                            <li>correction to each question</li>
+                            <li>correction to each question</li>
+                            <li>correction to each question</li>
+                            <li>correction to each question</li>
+                            <li>correction to each question</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="plan3">
+                    <h4>#1000</h4>
+                    <p>PRACTICE TIME: 1M,15D</p>
+                    <div class="plan-features">
+                        <h4>FEATURES</h4>
+                        <ul>
+                            <li>correction to each question</li>
+                            <li>correction to each question</li>
+                            <li>correction to each question</li>
+                            <li>correction to each question</li>
+                            <li>correction to each question</li>
+                            <li>correction to each question</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="plan4">
+                    <h4>#100</h4>
+                    <p>PRACTICE TIME: 12DAY</p>
+                    <div class="plan-features">
+                        <h4>FEATURES</h4>
+                        <ul>
+                            <li>correction to each question</li>
+                            <li>correction to each question</li>
+                            <li>correction to each question</li>
+                            <li>correction to each question</li>
+                            <li>correction to each question</li>
+                            <li>correction to each question</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="plan5">
+                    <h4>#500</h4>
+                    <p>PRACTICE TIME: 1M</p>
+                    <div class="plan-features">
+                        <h4>FEATURES</h4>
+                        <ul>
+                            <li>correction to each question</li>
+                            <li>correction to each question</li>
+                            <li>correction to each question</li>
+                            <li>correction to each question</li>
+                            <li>correction to each question</li>
+                            <li>correction to each question</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+        <!-- recent -->
+        <div class="features">
+            <h3>RECOMMENDED</h3>
+            <div class="fet-ctn">
+                <a href=" ">
+                    <div class="fet-div">
+                    <div class="course" id="pd">
+                        PRE-DEGREE
+                    </div>
+                    <img src="/cbt/img/banner/pre-degree.jpg" alt="">
+                    <div class="year" id="check">
+                       Check out our <span id="pd">Pre-degree</span>  pastquesions 
+                    </div>
+                </div></a>
+                <!-- uabs -->
+                <a href=" "><div class="fet-div">
+                    <div class="course" id="ua">
+                        UABS
+                    </div>
+                    <img src="/cbt/img/banner/uabs.jpg" alt="">
+                    <div class="year"id="check">
+                       Considering <span id="ua">UABS</span>?, get pastquesions now 
+                    </div>
+                </div></a>
+                <!-- departmental -->
+                <a href=" "><div class="fet-div">
+                    <div class="course" id="fu">
+                        FUTARIAN
+                    </div>
+                    <img src="/cbt/img/banner/futarian.jpg" alt="">
+                    <div class="year" id="check">
+                       Already a <span id="fu">FUTARIAN</span>?, get Departmental pastquesions now 
+                    </div>
+                </div></a>
+            </div>
+        </div>
+        <div class="advert" id="advert">
+                <h3>ADVERTS</h3>
+                <div class="advert-ctn">
+                    <div class="ad1 ad">
+                    <div class="img-prod"> <div class="adimg">
+                            <img src="/cbt/img/banner/road3.jpg" alt="">
+                        </div>
+                        <div class="product-name">
+                            <b>Product:</b> <span id="productname">Lorem ipsum dolor
+                            </span>
+                        </div>
+                    </div>
+                        <div class="description">
+                            <b>Description:</b> 
+                            <span id="productdescription">
+                                Lorem ipsum dolor sit amet.
+                            </span>
+                        </div>
+                    </div>
+                    <div class="ad2 ad">
+                    <div class="img-prod"> <div class="adimg">
+                            <img src="/cbt/img/banner/road3.jpg" alt="">
+                        </div>
+                        <div class="product-name">
+                            <b>Product:</b> <span id="productname">Lorem ipsum dolor
+                            </span>
+                        </div>
+                    </div>
+                        <div class="description">
+                            <b>Description:</b> 
+                            <span id="productdescription">
+                                Lorem ipsum dolor sit amet.
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="ad3 ad">
+                        <div class="img-prod"> <div class="adimg">
+                            <img src="/cbt/img/banner/road3.jpg" alt="">
+                        </div>
+                        <div class="product-name">
+                            <b>Product:</b> <span id="productname">Lorem ipsum dolor
+                            </span>
+                        </div>
+                    </div>
+                        <div class="description">
+                            <b>Description:</b> 
+                            <span id="productdescription">
+                                Lorem ipsum dolor sit amet.
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="ad4 ad">
+                    <div class="img-prod"> <div class="adimg">
+                            <img src="/cbt/img/banner/road3.jpg" alt="">
+                        </div>
+                        <div class="product-name">
+                            <b>Product:</b> <span id="productname">Lorem ipsum dolor
+                            </span>
+                        </div>
+                    </div>
+                        <div class="description">
+                            <b>Description:</b> 
+                            <span id="productdescription">
+                                Lorem ipsum dolor sit amet.
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="advert-ctn">
+                    <div class="ad5 ad">
+                    <div class="img-prod"> <div class="adimg">
+                            <img src="/cbt/img/banner/road3.jpg" alt="">
+                        </div>
+                        <div class="product-name">
+                            <b>Product:</b> <span id="productname">Lorem ipsum dolor
+                            </span>
+                        </div>
+                    </div>
+                        <div class="description">
+                            <b>Description:</b> 
+                            <span id="productdescription">
+                                Lorem ipsum dolor sit amet.
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="ad6 ad">
+                        <div class="img-prod"> <div class="adimg">
+                            <img src="/cbt/img/banner/road3.jpg" alt="">
+                        </div>
+                        <div class="product-name">
+                            <b>Product:</b> <span id="productname">Lorem ipsum dolor
+                            </span>
+                        </div>
+                    </div>
+                        <div class="description">
+                            <b>Description:</b> 
+                            <span id="productdescription">
+                                Lorem ipsum dolor sit amet.
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="ad7 ad">
+                    <div class="img-prod"> <div class="adimg">
+                            <img src="/cbt/img/banner/road3.jpg" alt="">
+                        </div>
+                        <div class="product-name">
+                            <b>Product:</b> <span id="productname">Lorem ipsum dolor
+                            </span>
+                        </div>
+                    </div>
+                        <div class="description">
+                            <b>Description:</b> 
+                            <span id="productdescription">
+                                Lorem ipsum dolor sit amet.
+                            </span>
+                        </div>
+                    </div>
+                    <div class="ad8 ad">
+                    <div class="img-prod"> <div class="adimg">
+                            <img src="/cbt/img/banner/road3.jpg" alt="">
+                        </div>
+                        <div class="product-name">
+                            <b>Product:</b> <span id="productname">Lorem ipsum dolor
+                            </span>
+                        </div>
+                    </div>
+                        <div class="description">
+                            <b>Description:</b> 
+                            <span id="productdescription">
+                                Lorem ipsum dolor sit amet.
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <div class="comments" id="comments"></div>
+    <div class="ads"></div>
+    </div>
+    <footer></footer>
+
+    <script>
+        var comment ;
+        window.onload = function(){
+            
+            const uri = "/comment/postutme";
+
+            let h = new Headers();
+            h.append("Accept", "application/json");
+            let req = new Request(uri, {
+                method: "GET",
+                headers: h,
+                mode: "cors"
+            });
+
+            fetch(req).then((res) => {
+                if (res.ok) {
+                    return res.json();
+                }
+                else {
+                    new Error("not bad");
+                }
+            }).then((jsondata) => {
+                comment = jsondata;
+                // console.log(JSON.stringify(comment));
+                loadcomment(comment);
+                
+            }).catch((err) => {
+                console.log(err);
+            }); 
+        }
+    </script>
+    <script src="/general/js/nav.js"></script>
+    <script src="/general/js/index.js"></script>
+    <script src="/general/js/menu.js"></script>
+    <!-- <script src="/general/js/search.js"></script> -->
+    <!-- <script src="/general/js/site-stats.js"></script> -->
+    <script src="/cbt/postutme/js/freemode.js"></script>
+    <script src="/general/js/comment.js"></script>
+    <script src="/general/js/moment.js"></script>
+    <script src="/general/js/footer.js"></script>
+
+    <!-- <div id="comment1" class="comment">
+                    <div class="comment-head">
+                        <img src="/cbt/img/banner/futalogo.png" alt="user-img for futa pastquesions">
+                        <div class="comment-head-right">
+                            <div class="comment-username">Andrew joe</div>
+                            <div class="time-commented"><span id="time-commented">April 31, 2020, 4:42 am</span></div>
+                        </div>
+                    </div>
+                    <div class="comment-usertext">
+                        Lorem ipsum dolor sit amet consectetur adipisicing.
+                        Lorem ipsum dolor sit amet consectetur adipisicing.
+                        Lorem ipsum dolor sit amet consectetur adipisicing.
+                    </div>
+                </div> -->
+</body>
+</html>

@@ -1,0 +1,308 @@
+{
+  "futa": [
+    {
+      "course": "esm202",
+      "faculty": "seet",
+      "level": "200",
+      "uploads": [
+        {
+          "course": "esm202",
+          "type": "exam",
+          "description": "fdd ggg",
+          "level": "200",
+          "faculty": "seet",
+          "name": "gtff",
+          "year": "2089/5654",
+          "date": "2nd august,2020",
+          "time": "9:13 pm",
+          "filename": "Chicken-Shawarma-jetbooks-gtff.jpg"
+        }
+      ]
+    },
+    {
+      "course": "mee202",
+      "faculty": "seet",
+      "level": "200",
+      "uploads": [
+        {
+          "course": "mee202",
+          "type": "exam",
+          "description": "mee202 pq",
+          "level": "200",
+          "faculty": "seet",
+          "name": "timip",
+          "year": "2019/2020",
+          "date": "2nd august,2020",
+          "time": "4:29 pm",
+          "filename": "bread1-jetbooks-timip.jpg"
+        }
+      ]
+    },
+    {
+      "course": "mee303",
+      "faculty": "saat",
+      "school": "futa",
+      "level": "300",
+      "uploads": [
+        {
+          "course": "mee303",
+          "type": "test",
+          "description": "testing",
+          "level": "300",
+          "faculty": "seet",
+          "school": "futa",
+          "name": "timipp",
+          "year": "2018/2019",
+          "date": "30th june,2020",
+          "time": "11:46 am",
+          "filename": "road3-jetbooks-timipp.jpg"
+        }
+      ]
+    },
+    {
+      "course": "mee101",
+      "faculty": "seet",
+      "school": "futa",
+      "level": 100,
+      "uploads": [
+        {
+          "course": "mee101",
+          "type": "textbook",
+          "description": "recommendation",
+          "level": "100",
+          "recommendation": "html",
+          "faculty": "seet",
+          "school": "futa",
+          "name": "timip",
+          "year": 2020,
+          "date": "1st july,2020",
+          "time": "10:20 am"
+        },
+        {
+          "course": "mee101",
+          "type": "exam",
+          "description": "mee101",
+          "level": "mee101",
+          "filename": "mee101",
+          "recommendation": "mee101",
+          "faculty": "seet",
+          "school": "futa",
+          "name": "mee101",
+          "year": "mee101",
+          "date": "mee101",
+          "time": "mee101"
+        }
+      ]
+    },
+    {
+      "course": "mee102",
+      "faculty": "seet",
+      "school": "futa",
+      "level": 100,
+      "uploads": [
+        {
+          "course": "mee101",
+          "type": "exam",
+          "description": "mee101",
+          "level": "mee101",
+          "filename": "mee101",
+          "recommendation": "mee101",
+          "faculty": "seet",
+          "school": "futa",
+          "name": "mee101",
+          "year": "mee101",
+          "date": "mee101",
+          "time": "mee101"
+        }
+      ]
+    },
+    {
+      "course": "eee202",
+      "faculty": "seet",
+      "school": "futa",
+      "level": 100,
+      "uploads": [
+        {
+          "course": "mee101",
+          "type": "exam",
+          "description": "mee101",
+          "level": "mee101",
+          "filename": "mee101",
+          "recommendation": "mee101",
+          "faculty": "seet",
+          "school": "futa",
+          "name": "mee101",
+          "year": "mee101",
+          "date": "mee101",
+          "time": "mee101"
+        }
+      ]
+    },
+    {
+      "course": "mts101",
+      "faculty": "seet",
+      "school": "futa",
+      "level": 100,
+      "uploads": [
+        {
+          "course": "mee101",
+          "type": "exam",
+          "description": "mee101",
+          "level": "mee101",
+          "filename": "mee101",
+          "recommendation": "mee101",
+          "faculty": "seet",
+          "school": "futa",
+          "name": "mee101",
+          "year": "mee101",
+          "date": "mee101",
+          "time": "mee101"
+        }
+      ]
+    }
+  ],
+  "oau": [
+    {
+      "course": "mts202",
+      "faculty": "saat",
+      "level": "200",
+      "school":"oau",
+      "uploads": [
+        {
+          "course": "mts202",
+          "type": "exam",
+          "description": "vkkd",
+          "level": "200",
+          "faculty": "saat",
+          "name": "fjdjf",
+          "year": "23232",
+          "date": "2nd august,2020",
+          "time": "9:27 pm",
+          "filename": "bread3-jetbooks-fjdjf.jpg"
+        }
+      ]
+    },
+    {
+      "course": "mee303",
+      "faculty": "saat",
+      "school": "futa",
+      "level": "300",
+      "uploads": [
+        {
+          "course": "mee303",
+          "type": "test",
+          "description": "testing",
+          "level": "300",
+          "faculty": "seet",
+          "school": "futa",
+          "name": "timipp",
+          "year": "2018/2019",
+          "date": "30th june,2020",
+          "time": "11:46 am",
+          "filename": "road3-jetbooks-timipp.jpg"
+        }
+      ]
+    },
+    {
+      "course": "mee101",
+      "faculty": "seet",
+      "school": "futa",
+      "level": 100,
+      "uploads": [
+        {
+          "course": "mee101",
+          "type": "textbook",
+          "description": "recommendation",
+          "level": "100",
+          "recommendation": "html",
+          "faculty": "seet",
+          "school": "futa",
+          "name": "timip",
+          "year": 2020,
+          "date": "1st july,2020",
+          "time": "10:20 am"
+        },
+        {
+          "course": "mee101",
+          "type": "exam",
+          "description": "mee101",
+          "level": "mee101",
+          "filename": "mee101",
+          "recommendation": "mee101",
+          "faculty": "seet",
+          "school": "futa",
+          "name": "mee101",
+          "year": "mee101",
+          "date": "mee101",
+          "time": "mee101"
+        }
+      ]
+    },
+    {
+      "course": "mee102",
+      "faculty": "seet",
+      "school": "futa",
+      "level": 100,
+      "uploads": [
+        {
+          "course": "mee101",
+          "type": "exam",
+          "description": "mee101",
+          "level": "mee101",
+          "filename": "mee101",
+          "recommendation": "mee101",
+          "faculty": "seet",
+          "school": "futa",
+          "name": "mee101",
+          "year": "mee101",
+          "date": "mee101",
+          "time": "mee101"
+        }
+      ]
+    },
+    {
+      "course": "eee202",
+      "faculty": "seet",
+      "school": "futa",
+      "level": 100,
+      "uploads": [
+        {
+          "course": "mee101",
+          "type": "exam",
+          "description": "mee101",
+          "level": "mee101",
+          "filename": "mee101",
+          "recommendation": "mee101",
+          "faculty": "seet",
+          "school": "futa",
+          "name": "mee101",
+          "year": "mee101",
+          "date": "mee101",
+          "time": "mee101"
+        }
+      ]
+    },
+    {
+      "course": "mts101",
+      "faculty": "seet",
+      "school": "futa",
+      "level": 100,
+      "uploads": [
+        {
+          "course": "mee101",
+          "type": "exam",
+          "description": "mee101",
+          "level": "mee101",
+          "filename": "mee101",
+          "recommendation": "mee101",
+          "faculty": "seet",
+          "school": "futa",
+          "name": "mee101",
+          "year": "mee101",
+          "date": "mee101",
+          "time": "mee101"
+        }
+      ]
+    }
+  ]
+}

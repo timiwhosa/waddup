@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="free download of FUTA past-questions">
+    <meta name="keywords" content="Post-Utme, futa post utme, post utme, post utme pastquestions, post utme cbt, jetbooks, pq, pqs, pq's, past questions, pastquestions, futapastquestions, futa pastquestions, jet, jetbooks, jet-brand, jetbrand, futa past questions , free past questions, questions">
+    <meta name="author" content="Jet-brand">
+    <title>FUTA POST-UTME |JETbooks</title>
+    <link rel="stylesheet" href="/calculator/postutme/css/futa-postutme-calculator.css">
+    <link rel="stylesheet" href="/general/css/general-style.css">
+    <script src="/general/js/jquery.min.js"></script>
+    </head>
+<body>
+   <!-- menu -->
+     <div class="menu">
+        <ul id="menu"></ul>
+    </div>
+    <!-- nav -->
+    <nav id="nav"></nav>
+    <ul id= "searchoption"></ul>
+    <div id="generalinfo"></div>
+    <div class="container">
+        <h3>Futa Post-Utme Cutt off mark Calculator</h3>
+        <div class="top">
+            Futa Post-Utme is conducted every year with at least 15 to 20 thousand applicants, and only 3,500 (less than 4,000) students are 
+            admitted. ie 17.5% are admitted. Surprised? of course you should be. But the question is <a href="/blog/postutme/10-things-to-do-to-pass-futa-postutme">What must i do to get admitted</a>. 
+            <p>
+                Well, I have a high jamb score, am good to go right? not really.
+                 But you should know that your admission depends on several factors:
+                 <ul>
+                     <li>Department you are appying to (how competitive is it.)</li>
+                     <li>Your Jamb score,</li>
+                     <li>Post-Utme score</li>
+                     <li>How many people applying to that Department have a high jamb and post utme score. To know more about this, check our blog post on <a href="/blog/postutme/futa-departmental-cut-off">How is Futa departmental cut off mark gotten or calculated.</a></li>
+                     <li>Your SSCE result (Number of sitting and how strong it is)</li>
+                     <li>for DE, what's your A-Level score
+                         <ul>
+                             <li>Did you do your A-Level in futa,</li>
+                             <li>Did you do it somewhere else.</li>
+                         </ul>
+                     </li>
+                 </ul>
+                 for more details about all this, read our blog post on <a href="/blog/postutme/futa-postutme">Futa post utme,</a> and <a href="/blog/postutme/10-things-to-do-to-pass-futa-postutme">10 things to do to pass futa Post-Utme.</a>
+            </p>
+        </div>
+        
+        <div class="cal-desc">
+            <h2>How this Calculator works</h2>
+            Firstly, You should know that the minimum you must score in your post utme irrespective of your jamb score, is 60%. Hence, the lowest score that this calculator shows is 60%.
+            <ul>
+                <li>Enter in your jamb score</li>
+                <li>Select your faculty (not sure what faculty your department falls under, <a href="/blog/postutme/about-futa#faculties">click here</a> )</li>
+                <li>Select the department you are applying to</li>
+                <li>Click on CALCULATE</li>
+            </ul>
+        </div>
+        <div class="calculator">
+            <div class="cal-top">
+                <div class="ja">Jamb score <br> <input type="text" name="jambscore" id="jambscore"></div>
+                <div class="fa">Faculty <br> <input type="button" value="faculty" id="faculty" onclick="showfac()"></div>
+            <p><b>Faculties</b></P>
+            </div>
+            
+            <div class="faculty" id="faculty-div">
+                <p onclick="getcutdpt('saat')">School of Agriculture</p>
+                <p onclick="getcutdpt('seet')">School of Engineering</p>
+                <p onclick="getcutdpt('set')">School of Environmental</p>
+                <p onclick="getcutdpt('sems')">School of Earth</p>
+                <p onclick="getcutdpt('sos')">School of Science</p>
+                <p onclick="getcutdpt('shht')">School of Health</p>
+                <p onclick="getcutdpt('soc')">School of Computing</p>
+            </div>
+            <div class="dpt" id="dpt-div">
+                <h5>Department</h5>
+                <div class="dpt-dpt">
+                    <ul id="dpt"></ul>
+                </div>
+                <div id="save">
+                    <input type="button" value="Calculate" name="save" id="calculate">
+                </div>
+            </div>
+            <div class="dat" id="dat">
+                <h5>You must have:</h5>
+                <p>minimum in Post-Utme: <span id="postutmemin"></span>%</p>
+                <p>minimum number of correct options/questions: <span id="correctqmin">17</span> out of 25</p>
+            </div>
+        </div>
+        <div id="other-post">
+        <h2>Useful blog post</h2>
+        <ul>
+            <li>- <a href="/blog/postutme/about-futa">About Futa</a></li>
+            <li>- <a href="/blog/postutme/10-things-to-do-to-pass-futa-postutme">10 things to do to pass Futa Post-Utme</a></li>
+            <li>- <a href="/blog/postutme/futa-postutme">Futa post utme </a></li>
+            <li>- <a href="/archive/section/postutme">Futa Past questions</a></li>
+            <li>- <a href="/blog/postutme/futa-departmental-cut-off">Futa departmental cut off marks and how it is derieved</a></li>
+            <li>- <a href="/blog/postutme/futa-subject-combination">Futa subject combination and number of sitting</a></li>
+        </ul>
+    </div>
+    </div>
+    <div class="site-stats"></div>
+    <div class="comments" id="comments"></div>   
+    <footer></footer>
+
+    <script src="/general/js/nav.js"></script>
+    <script src="/calculator/postutme/js/postutme-calculator.js"></script>
+    <script src="/general/js/index.js"></script>
+    <script src="/general/js/menu.js"></script>
+    <script src="/general/js/search.js"></script>
+    <script src="/general/js/site-stats.js"></script>
+
+
+     <script>
+        var views = document.getElementById("views");
+
+var viewsdata ;
+        var comment ;
+window.onload = function(){
+    
+const uri = "/comment";
+
+let h1 = new Headers();
+h1.append("Accept", "application/json");
+let req1 = new Request(uri, {
+    method: "GET",
+    headers: h1,
+    mode: "cors"
+});
+
+fetch(req1).then((res) => {
+    if (res.ok) {
+        return res.json();
+    }
+    else {
+        new Error("not bad");
+    }
+}).then((jsondata) => {
+    comment = jsondata;
+    // console.log(JSON.stringify(comment));
+    loadcomment(comment);
+     
+}).catch((err) => {
+    console.log(err);
+}); 
+
+
+ const url = "/homevisits";
+    let h = new Headers();
+    h.append("Accept", "application/json");
+    let req = new Request(url,{
+        method:"GET",
+        headers: h,
+        mode: "cors"
+    });
+
+    fetch(req).then((res)=>{
+        if(res.ok){
+            return res.json();
+        }
+    }).then((data)=>{
+        viewsdata = data;
+        views.innerText = viewsdata.visits;
+
+    }).catch((err)=>{
+        console.log(err);
+    });
+}
+</script>
+
+    <script src="/general/js/comment.js"></script>
+    <script src="/general/js/moment.js"></script>
+    <script src="/general/js/footer.js"></script>
+
+    <script>
+        function showmore(he){
+            // console.log(he.id.id);
+            document.getElementById(`${he.id}`).style.height = "auto";
+            document.getElementById(`plus${he.id}`).style.display = "none";
+            document.getElementById(`minus${he.id}`).style.display = "inline-block";
+        }
+        function showless(he){
+            document.getElementById(`${he.id}`).style.height = "70px";
+            document.getElementById(`plus${he.id}`).style.display = "inline-block";
+            document.getElementById(`minus${he.id}`).style.display = "none";
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,209 @@
+[
+
+    {
+            "faculty": "saat",
+            "department": [
+                {
+                    "dpt": "agricultural extention",
+                    "cutoff": "47.5"
+                },
+                {
+                    "dpt": "animal production",
+                    "cutoff": "55.37"
+                },
+                {
+                    "dpt": "agricultural and research econs",
+                    "cutoff": "47.5"
+                },
+                {
+                    "dpt": "crop science",
+                    "cutoff": "47.5"
+                },
+                {
+                    "dpt": "EWM",
+                    "cutoff": "47.5"
+                },
+                {
+                    "dpt": "FAT",
+                    "cutoff": "47.5"
+                },
+                {
+                    "dpt": "FST",
+                    "cutoff": "58.12"
+                },
+                {
+                    "dpt": "FWT",
+                    "cutoff": "47.5"
+                }
+            ]
+        },
+    {"faculty":"seet", "department":[{"dpt":"agricultural engineering","cutoff":"55.12"},
+        {
+            "dpt": "computer engineering",
+            "cutoff": "69.62"
+        },{
+            "dpt": "civil engineering",
+            "cutoff": "71.87"
+        },
+        {
+            "dpt": "electrical engineering",
+            "cutoff": "74.37"
+        },
+        {
+            "dpt": "ICT",
+            "cutoff": "49.75"
+        },
+        {
+            "dpt": "industrial and production engineering",
+            "cutoff": "47.5"
+        },
+        {
+            "dpt": "mechanical engineering",
+            "cutoff": "73.75"
+        },
+        {
+            "dpt": "metallurgical engineering",
+            "cutoff": "54.87"
+        },
+        {
+            "dpt": "minning engineering",
+            "cutoff": "54.75"
+        }]},
+        {
+            "faculty": "sems",
+            "department": [
+                {
+                    "dpt": "AGP",
+                    "cutoff": "47.5"
+                },
+                {
+                    "dpt": "AGY",
+                    "cutoff": "47.5"
+                },
+                {
+                    "dpt": "MST",
+                    "cutoff": "47.5"
+                },
+                {
+                    "dpt": "MCS",
+                    "cutoff": "47.5"
+                },
+                {
+                    "dpt": "RSG",
+                    "cutoff": "47.5"
+                }
+            ]
+        },
+        {
+            "faculty": "set",
+            "department": [
+                {
+                    "dpt": "ARC",
+                    "cutoff": "72.87"
+                },
+                {
+                    "dpt": "BDG",
+                    "cutoff": "56.62"
+                },
+                {
+                    "dpt": "ESM",
+                    "cutoff": "47.5"
+                },
+                {
+                    "dpt": "IDD",
+                    "cutoff": "53.25"
+                },
+                {
+                    "dpt": "QSV",
+                    "cutoff": "57"
+                },
+                {
+                    "dpt": "SVG",
+                    "cutoff": "64.25"
+                },
+                {
+                    "dpt": "URP",
+                    "cutoff": "52.87"
+                }
+            ]
+        },
+        {
+            "faculty": "soc",
+            "department": [
+                {
+                    "dpt": "CSC",
+                    "cutoff": "69"
+                },
+                {
+                    "dpt": "IFT",
+                    "cutoff": "63.75"
+                },
+                {
+                    "dpt": "IFS",
+                    "cutoff": "63.75"
+                },
+                {
+                    "dpt": "CSS",
+                    "cutoff": "63.75"
+                },
+                {
+                    "dpt": "SEN",
+                    "cutoff": "63.75"
+                }
+            ]
+        },
+        {
+            "faculty": "sos",
+            "department": [
+                {
+                    "dpt": "BCH",
+                    "cutoff": "63.37"
+                },
+                {
+                    "dpt": "BIO",
+                    "cutoff": "47.5"
+                },
+                {
+                    "dpt": "BTH",
+                    "cutoff": "47.5"
+                },
+                {
+                    "dpt": "CHE",
+                    "cutoff": "47.5"
+                },
+                {
+                    "dpt": "MCB",
+                    "cutoff": "63"
+                },
+                {
+                    "dpt": "MTS",
+                    "cutoff": "59"
+                },
+                {
+                    "dpt": "PHY",
+                    "cutoff": "47.5"
+                },
+                {
+                    "dpt": "STA",
+                    "cutoff": "47.5"
+                }
+            ]
+        },
+        {
+            "faculty": "shht",
+            "department": [
+                {
+                    "dpt": "ANA",
+                    "cutoff": "59.5"
+                },
+                {
+                    "dpt": "BIM",
+                    "cutoff": "47.5"
+                },
+                {
+                    "dpt": "PHS",
+                    "cutoff": "57.25"
+                }
+            ]
+        }
+]

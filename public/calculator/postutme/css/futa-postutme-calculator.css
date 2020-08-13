@@ -1,0 +1,145 @@
+*{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+    outline: none;
+    /* white-space: normal; */
+}
+body{
+    margin: 0;
+    padding: 0;
+}
+body a{
+    color:black;
+}
+h2,h4,h5{
+    padding: 10px 0;
+}
+#correctqmin, #postutmemin{
+    color:#fbb710;
+}
+.container{
+    margin-top: 75px;
+    display: block;
+    width: 100vw;
+    font-size: 20px;
+    line-height: 30px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #474747;
+    font-stretch: extra-expanded;
+}
+.container a{
+    text-decoration: underline;
+}
+.container p{
+    margin: 0  20px;
+    line-height: 25px;
+    padding: 10px 0;
+}
+.container ul{
+    margin: 0  6vw;
+    padding: 10px 0;
+}
+.container ul li{
+    list-style-type: disc;
+    padding: 8px 0;
+    font-size: 18px;
+    width: auto;
+}
+.container ul li ul li{
+    list-style-type: lower-roman ;
+}
+.top{
+    padding-top:10px;
+}
+h3{
+    font-size: 25px;
+    text-align: center;
+    padding: 20px 0;
+    /* position: sticky;
+    top: 70px; */
+    background: #fff;
+    z-index: 99;
+}
+.container div{
+    margin: 0 10%;
+    line-height: 30px;
+    clear: both;
+}
+.container div p{
+    margin-left: 0;
+    width: auto;
+}
+
+#dpt li input{
+    width:20px;
+    height:20px;
+}
+
+#save{
+    float:right;  
+}
+#save input{
+    width: 100px;
+    height: 30px;
+    background: #fbb710;
+    border: none;
+    border-radius: 100px;
+    box-shadow: inset 3px 3px 2px #ffffff5e, 2px 2px 2px 0px #00000057;
+    font-weight: 600;
+    margin-top: 10px;
+    padding: 0;
+    cursor: pointer;
+}
+#save input:active{
+    box-shadow: inset 3px 3px 2px #0808085e, inset -2px -2px 2px 0px #ffffff91;
+}
+.cal-top{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+}
+
+.ja input{
+    height: 35px;
+    border-radius: 100px;
+    border: 1px solid #FFC107;
+    padding: 0 30px;
+    width: 70px;
+    margin: 15px 0;
+}
+.fa input{
+    width: 100px;
+    height: 30px;
+    background: #fbb710;
+    border: none;
+    border-radius: 100px;
+    box-shadow: inset 3px 3px 2px #ffffff5e, 2px 2px 2px 0px #00000057;
+    font-weight: 600;
+    margin-top: 10px;
+    padding: 0;
+    cursor: pointer;
+}
+.fa input:active{
+    box-shadow: inset 3px 3px 2px #0808085e, inset -2px -2px 2px 0px #ffffff91;
+}#faculty-div{
+    height: 0;
+    overflow: hidden;
+}
+.faculty p,#dpt li{
+    cursor: pointer;
+}
+@media screen and (max-width: 480px){
+    .container div h4{
+        margin-left: 0;
+    }
+    .container div{
+        margin: 0 5%;
+        line-height: 30px;
+        clear: both;
+    }
+    .container div div{
+        margin:0;
+    }
+    
+}

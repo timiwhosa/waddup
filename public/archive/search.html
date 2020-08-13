@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JETARchive Search Page</title>
+     <link rel="stylesheet" href="/archive/css/archive.css">
+    <link rel="stylesheet" href="/general/css/general-style.css">
+    <script src="/general/js/jquery.min.js"></script>
+</head>
+<body>
+   <!-- menu -->
+     <div class="menu">
+        <ul id="menu"></ul>
+    </div>
+    <!-- nav -->
+    <nav id="nav"></nav>
+    <ul id= "searchoption"></ul>
+    <div id="generalinfo"></div>
+    <div class="container">
+        <h2>JETARchive</h2>
+        <h3 style="margin-left: 2vw; margin-top: 2vw;">Your search Result (<span id="result">0</span> )</h3>
+        <div class="row search-row" id="search-row"> </div>
+        <div class="cc">
+        <div class="contc qa">
+            <h3>CONTACT US</h3>
+            <h5>Got a message or suggestion? Lets hear from you</h5>
+            <p>Your Name:</p>
+            <input type="text" id="contact-name" placeholder="Name/Nickname" maxlength="20">
+            <p>Whatsapp Number:</p>
+            <input type="number" id="contact-number" placeholder="For further contact" maxlength="15">
+            <p>Message</p>
+            <textarea name="contact-message" id="contact-message" cols="30" rows="10" placeholder="Pls write your message here" maxlength="500"></textarea>
+
+            <div class="up"><button onclick="contactus()">Upload</button></div>
+        </div>
+
+        <div class="qa">
+        <h3>Q&A</h3>
+        <div id="qa">
+            <div class="">
+                <p onclick="showans(1)">What is JETBOOKS about?  <span > &#8595</span></p>
+                <div class="ans" id="ans1">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque, vero.
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam, molestias!
+                </div>
+            </div>
+            <div class="">
+                <p onclick="showans(2)">What is JETBOOKS about?  <span > &#8595</span></p>
+                <div class="ans" id="ans2">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque, vero.
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam, molestias!
+                </div>
+            </div>
+            </div>
+            </div>
+        </div>
+        <div class="usefullinks" id="usefullinks"></div>
+    </div>
+    <div class="to-top" id="scrollup" onclick="scrollup()">
+        <span>&#8248;</span>
+    </div>
+    <!-- <div class="site-stats"></div> -->
+    <div class="comments" id="comments"></div>   
+    <footer></footer>
+
+    <script src="/general/js/nav.js"></script>
+    <script src="/general/js/index.js"></script>
+    <script src="/general/js/menu.js"></script>
+    <script src="/general/js/search.js"></script>
+    <script src="/archive/js/useful-links.js"></script>
+    <script src="/general/js/footer.js"></script>
+
+    <script>
+
+        String.prototype.escape = function () {
+            var tagtoreplace = {
+                "&": "&amp;",
+                "<": "&lt",
+                ">": "&gt",
+                "=": "",
+                "script": " ",
+                "Script": " ",
+                '"': " ",
+                "`": " "
+            };
+            return this.replace(/[&<>`=]/g, function (tag) {
+                return tagtoreplace[tag] || tag;
+            });
+        }
+
+
+        var sec = window.location.href.split("category/")[1];
+        var ur = `/archive/search/${sec}`;
+        var h = new Headers();
+        h.append("Accept","application/json");
+        var reqq = new Request(ur,{
+            method: "GET",
+            header: h,
+            mode: "cors"
+        });
+        fetch(reqq).then((res)=>{
+            return res.json();
+        }).then((json)=>{
+            loadsearch(json, sec.split(",")[0])
+            // console.log(json)
+        }).catch(console.error);
+
+
+
+
+        function loadsearch(data, type){
+            var school =window.location.href.split("category/")[1].split("?school=")[1]
+            var div = document.getElementById("search-row");
+            var result = document.getElementById("result");
+            var ress = 0;
+            if(type == "course"){
+                var html = "";
+                for(j=0; j<data.length; j++){
+                    html +=`
+                    <a href="/archive/course/${data[j].course.escape()}?school=${school.escape()}">
+                        <div class="search-data">
+                            <div class="">Course: <span class="b">${data[j].course.escape()}</span></div>
+                            <div class=""><span class="b">Faculty</span> : ${data[j].faculty.escape()}</div>
+                            <div class="lel">
+                                <div class=""><span class="b">Level</span>: ${data[j].level.toString().escape()}</div>
+                                <div class=""><span class="b">Uploads</span>: ${data[j].uploads}</div>
+                            </div>
+
+                        </div>
+                    </a>`
+                    ress = j+1;
+                }
+                result.innerHTML = ress;
+                div.innerHTML += html;
+            }
+
+            else if(type == "book"){
+                var html = "";
+                for(j=0; j<data.length; j++){
+                    html +=`
+                    <a href="/archive/books/book?title=${data[j].title.replace(/\s/g, "%20").escape()}&author=${data[j].author.replace(/\s/g, "%20").escape()}">
+                        <div class="search-data search-data-book">
+                            <div class="s-left">
+                                <img src="/archive/books/book-img${data[j].image.escape()}" alt="">
+                            </div>
+                            <div class="s-right">
+                                <div class=""><span class="b">Title:</span> ${data[j].title.escape()}</div>
+                                <div class=""><span class="b">Author:</span> ${data[j].author.escape()}</div>
+                                <div class=""><span class="b">Edition:</span> ${data[j].edition.escape()}</div>
+                                <div class=""><span class="b">Type:</span> ${data[j].type.escape()}</div>
+                            </div>
+                        </div>
+                    </a>`
+                
+                    ress = j+1;
+                }
+                result.innerHTML = ress;
+                div.innerHTML += html;
+            }
+        }
+
+
+        function  contactus(){
+            var name = document.getElementById("contact-name").value;
+            var number = document.getElementById("contact-number").value;
+            var message = document.getElementById("contact-message").value;
+
+           if(name.trim()!= "" && number.trim()!= "" && message.trim() !=""){
+                var urr = "/contact_suggest"
+                var opt = {
+                    method: "POST",
+                    headers: {"content-type": "application/json"},
+                    body: JSON.stringify({
+                        name: name.escape(),
+                        number: number.escape(),
+                        message: message.escape(),
+                        time: moment().format("MMMM Do, YYYY h:mm a")
+                    })
+                }
+
+               fetch(urr, opt).then((res)=>{
+                   if (res.ok) {
+                        name = document.getElementById("contact-name").value = "";
+                        number = document.getElementById("contact-number").value = "";
+                        message = document.getElementById("contact-message").value = "";
+                        return res.json();
+                    }
+                    else {
+                        return res.json();
+                    }
+               }).then((json)=>{
+                    alert(json.message);
+               });
+               
+
+           }
+           else{
+               alert("We really need to hear from you. Pls fill form correctly");
+           }
+
+        }
+    </script>
+</body>
+</html>

@@ -47,13 +47,45 @@ String.prototype.escape = function () {
   });
 }
 
-var view = JSON.parse(fs.readFileSync(path.join(__dirname, "./views.json")));
+
+  var visit = JSON.parse(
+    fs.readFileSync(path.join(__dirname, "/views.json"))
+  );
+
+  async function visits(page) {
+    var vv = 0;
+    for (let v = 0; v < visit.length; v++) {
+      if (visit[v].page == page) {
+        visit[v].visit += 1;
+        fs.writeFileSync(
+          path.join(__dirname, "/views.json"),
+          JSON.stringify(visit, null, 2)
+        );
+        vv = 1;
+      }
+    }
+    if (vv == 0) {
+      visit.push({
+        page,
+        visit: 1,
+      });
+      fs.writeFileSync(
+        path.join(__dirname, "/views.json"),
+        JSON.stringify(visit, null, 2)
+      );
+    }
+  }
+
+// var view = JSON.parse(fs.readFileSync(path.join(__dirname, "./views.json")));
 // console.log(view)
 app.get("/", (req,res)=>{
+    visits("index");
     res.sendFile(__dirname + "/public/index.html");
-    // view[0].visit +=1;
-    // fs.writeFileSync(path.join(__dirname,"./views.json"), JSON.stringify(view, null,2));
 });
+app.get("/index", (req,res)=>{
+  visits("index");
+  res.end();
+})
 // app.get("/library", (req, res) => {
 //   res.sendFile(__dirname + "/public/home.html");
 //      view[2].visit +=1;
@@ -61,16 +93,19 @@ app.get("/", (req,res)=>{
 // });
 // change this later ******************
 app.get("/home", (req, res) => {
+  visits("index");
   res.sendFile(__dirname + "/public/index.html");
   view[0].visit += 1;
   fs.writeFileSync(path.join(__dirname, "./views.json"), JSON.stringify(view, null, 2))
 });
 
 app.get("/category", (req,res)=>{
-  console.log(req.session)
+  visits("category");
+  // console.log(req.session)
   res.sendFile(path.join(__dirname,"/public/category.html"))
 })
 app.get("/schools/:school", (req, res) => {
+  // visits(``);
   res.sendFile(__dirname + `/public/schools/age.html`);
   
 //   
@@ -88,12 +123,14 @@ app.get("/dpt/:school/:dpt", jsonparser, async (req, res)=>{
 });
 
 app.get("/contact", (req,res)=>{
+  
+  visits(`contact`);
   res.sendFile(__dirname + "/public/complaint.html");
-  view[11].visit += 1;
-  fs.writeFileSync(path.join(__dirname, "./views.json"), JSON.stringify(view, null, 2));
 });
 var comp = JSON.parse(fs.readFileSync(__dirname + "/user-responses/archive/complaint.json"))
 app.post("/contact", jsonparser, (req,res)=>{
+  
+  visits(`contact-post`);
   var time = moment().format("MMMM Do,YYYY, h:mm a");
   comp.unshift({
     section: req.body.section.escape(),
@@ -127,13 +164,16 @@ app.post("/miscellaneous/upload", (req,res)=>{
 
 
 app.get("/cgpa_cal", urlencodedParser, (req, res) => {
+  
+  
+  visits(`cgpa_cal`);
   res.sendFile(path.join(__dirname, "/public/cgpa_cal/cgpa.html"));
-  view[4].visit += 1;
-  fs.writeFileSync(path.join(__dirname, "./views.json"), JSON.stringify(view, null, 2))
 });
 
 //message
 app.post("/message", jsonparser,(req,res)=>{
+  
+  visits(`message`);
   var hhhhh = JSON.parse(fs.readFileSync(__dirname+ "/newsletter.json"));
   
   hhhhh.unshift(req.body);
@@ -209,17 +249,24 @@ app.get("/complaint", jsonparser, (req,res)=>{
 // cart
 
 app.get("/cart", (req, res) => {
+  
+  visits(`cart`);
   res.sendFile(__dirname + "/public/cart.html");
 });
 
 // about 
 app.get("/about", (req, res) => {
+  
+  visits(`about`);
   res.sendFile(__dirname + "/public/about.html");
-  view[5].visit += 1;
-  fs.writeFileSync(path.join(__dirname, "./views.json"), JSON.stringify(view, null, 2))
 });
 
 app.get("/download/:fac/:dpt/:file", (req,res)=>{
+  
+  visits(`download-${req.params.fac}`);
+  visits(`download-${req.params.dpt}`);
+  visits(`download-${req.params.file}`);
+
   var pq = path.join(__dirname, `./public/pq/${req.params.fac}/${req.params.dpt}/${req.params.file}`);
   fs.readFile(pq, (err, content)=>{
     if(err){
@@ -247,6 +294,7 @@ function exist(users, objid){
 }
 
 app.post("/signup", jsonparser, async (req, res) => {
+  visits(`signup`);
   // console.log(req.body)
   var time = moment().format("MMMM Do,YYYY, h:mm a");
   var users = JSON.parse(fs.readFileSync(path.join(__dirname,"./store.json")));
@@ -282,6 +330,7 @@ app.post("/signup", jsonparser, async (req, res) => {
   }
 });
 app.post("/login", jsonparser, async (req, res) => {
+  visits(`login`);
   // console.log(req.body)
   var users = JSON.parse(fs.readFileSync(path.join(__dirname, "./store.json")));
   var user = users.filter((user1) => {
@@ -293,6 +342,7 @@ app.post("/login", jsonparser, async (req, res) => {
     // console.log(pasw)
     if(pasw == true){
       req.session.userId = user[0].id;
+      visits(`login-${user[0].id}`);
       res.status(200).json({message: "welcome back"});
     }
     else {
@@ -315,6 +365,7 @@ app.post("/login", jsonparser, async (req, res) => {
 //   res.sendFile(path.join(__dirname, "/public/postutme/home.html"));
 // });
 app.get("/postutme/calculator", (req, res) => {
+  visits(`postutme-calculator`);
   res.sendFile(path.join(__dirname, "/public/calculator/postutme/futa-postutme-calculator.html"));
 });
 app.get("/comment/:section", (req, res) => {
@@ -323,6 +374,7 @@ app.get("/comment/:section", (req, res) => {
 
 //////////////////////CONTRIBUTORS///////////////////////////////////
 app.get("/contributors", (req, res) => {
+  visits(`contributors`);
   res.sendFile(path.join(__dirname, "/public/contrib.html"));
 });
 

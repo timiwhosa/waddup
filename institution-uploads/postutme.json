@@ -1,49 +1,144 @@
 {
   "futa": [
     {
-      "subject": "mathematics",
-      "type": "question",
+      "subject": "Biology",
+      "type": "answer",
       "school":"futa",
-      "uploadedby": "gjgjg",
-      "year": "2019/3030",
+      "uploadedby": "jetbooks",
+      "year": "2018/2019",
       "date": "3rd august,2020",
       "time": "1:25 pm",
-      "file": "cupcake2-jetbooks-gjgjg.jpg"
+      "file": "futa-postutme-biology-answer.pdf"
     },
     {
-      "subject": "english language",
+      "subject": "Biology",
       "type": "question",
       "school": "futa",
-      "uploadedby": "JETBOOKS",
-      "file": "/archive/section/download/postutme/english"
+      "uploadedby": "jetbooks",
+      "year": "2018/2019",
+      "date": "3rd august,2020",
+      "time": "1:25 pm",
+      "file": "futa-postutme-biology-question.pdf"
     },
     {
-      "subject": "maths language",
+      "subject": "Chemistry",
       "type": "question",
-      "school": "futa",
-      "uploadedby": "JETBOOKS",
-      "file": "/archive/section/download/postutme/english"
+      "school":"futa",
+      "uploadedby": "jetbooks",
+      "year": "2018/2019",
+      "date": "3rd august,2020",
+      "time": "1:25 pm",
+      "file": "futa-postutme-chemistry.pdf"
     },
     {
-      "subject": "chemistry language",
-      "type": "question",
+      "subject": "Chemistry",
+      "type": "answer",
       "school": "futa",
-      "uploadedby": "JETBOOKS",
-      "file": "/archive/section/download/postutme/english"
+      "uploadedby": "jetbooks",
+      "year": "2018/2019",
+      "date": "3rd august,2020",
+      "time": "1:25 pm",
+      "file": "futa-postutme-chemistry-answer.pdf"
     },
     {
-      "subject": "english language",
-      "type": "question",
-      "school": "futa",
-      "uploadedby": "JETBOOKS",
-      "file": "/archive/section/download/postutme/english"
+      "subject": "Economics",
+      "type": "answer",
+      "school":"futa",
+      "uploadedby": "jetbooks",
+      "year": "2018/2019",
+      "date": "3rd august,2020",
+      "time": "1:25 pm",
+      "file": "futa-postutme-economics-answer.pdf"
     },
     {
-      "subject": "english language",
+      "subject": "Economics",
       "type": "question",
       "school": "futa",
-      "uploadedby": "JETBOOKS",
-      "file": "/archive/section/download/postutme/english"
+      "uploadedby": "jetbooks",
+      "year": "2018/2019",
+      "date": "3rd august,2020",
+      "time": "1:25 pm",
+      "file": "futa-postutme-economics-question.pdf"
+    },
+    {
+      "subject": "English",
+      "type": "question",
+      "school": "futa",
+      "uploadedby": "jetbooks",
+      "year": "2018/2019",
+      "date": "3rd august,2020",
+      "time": "1:25 pm",
+      "file": "futa-postutme-english.pdf"
+    },
+    {
+      "subject": "English",
+      "type": "answer",
+      "school": "futa",
+      "uploadedby": "jetbooks",
+      "year": "2018/2019",
+      "date": "3rd august,2020",
+      "time": "1:25 pm",
+      "file": "futa-postutme-english-answer.pdf"
+    },
+    {
+      "subject": "generalpaper",
+      "type": "answer",
+      "school": "futa",
+      "uploadedby": "jetbooks",
+      "year": "2018/2019",
+      "date": "3rd august,2020",
+      "time": "1:25 pm",
+      "file": "futa-postutme-generalpaper-answer.pdf"
+    },
+    {
+      "subject": "generalpaper",
+      "type": "question",
+      "school": "futa",
+      "uploadedby": "jetbooks",
+      "year": "2018/2019",
+      "date": "3rd august,2020",
+      "time": "1:25 pm",
+      "file": "futa-postutme-generalpaper-question.pdf"
+    },
+    {
+      "subject": "mathematics",
+      "type": "answer",
+      "school": "futa",
+      "uploadedby": "jetbooks",
+      "year": "2018/2019",
+      "date": "3rd august,2020",
+      "time": "1:25 pm",
+      "file": "futa-postutme-mathematics-answer.pdf"
+    },
+    {
+      "subject": "mathematics",
+      "type": "question",
+      "school": "futa",
+      "uploadedby": "jetbooks",
+      "year": "2018/2019",
+      "date": "3rd august,2020",
+      "time": "1:25 pm",
+      "file": "futa-postutme-mathematics-question.pdf"
+    },
+    {
+      "subject": "physics",
+      "type": "answer",
+      "school": "futa",
+      "uploadedby": "jetbooks",
+      "year": "2018/2019",
+      "date": "3rd august,2020",
+      "time": "1:25 pm",
+      "file": "futa-postutme-physics-answer.pdf"
+    },
+    {
+      "subject": "physics",
+      "type": "question",
+      "school": "futa",
+      "uploadedby": "jetbooks",
+      "year": "2018/2019",
+      "date": "3rd august,2020",
+      "time": "1:25 pm",
+      "file": "futa-postutme-physics-question.pdf"
     }
   ],
   "oau": [

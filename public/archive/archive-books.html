@@ -8,6 +8,32 @@
     <link rel="stylesheet" href="/general/css/general-style.css">
     <script src="/general/js/jquery.min.js"></script>
     <style>
+        #row2 .vid-div h3{
+            margin-left: 5vw;
+        }
+        #row2 .vid-div .cute{
+            display: block;
+            overflow-y: hidden;
+            overflow-x: scroll;
+            white-space: nowrap;
+            margin: 0;
+        }
+        #row2 .vid-div .cute::-webkit-scrollbar{
+            display: none;
+        }
+        #row2 .vid-div .cute >div{
+            display: inline-block;
+            margin: 2vw;
+            white-space: normal;
+            max-width: 150px;
+        }
+        #row2 .vid-div .cute >div:nth-child(1){
+            margin-left: 4vw;
+        }
+        #row2 .vid-div .cute >div:last-child{
+            margin-right: 4vw;
+        }
+
         @media screen and (max-width: 480px) {
             .cute > a, .cute > a > div, .cute >div{
                 height: 250px;
@@ -558,7 +584,7 @@
 
                    
                 </div>
-                <div class="cat-suggest" id="cat-suggest">
+                <!-- <div class="cat-suggest" id="cat-suggest">
                     <h3>Suggest a category</h3>
                     <div class="cat-suggest-det">
                         <div class="cat-suggest-left">
@@ -577,14 +603,27 @@
                             <textarea name="cat-reason" id="cat-reason" cols="30" rows="10" placeholder="Pls state reason(s) here"></textarea>
                         </div>
                     </div>
-                </div>
+                </div> -->
             </div>
+            
 
             <div class="row3" id="row3">
 
             </div>
 
         </section>
+        <div class="contc qa">
+            <h3>CONTACT US</h3>
+            <h5>Got a message or suggestion? Lets hear from you</h5>
+            <p>Your Name:</p>
+            <input type="text" id="contact-name" placeholder="Name/Nickname" maxlength="20">
+            <p>Whatsapp Number:</p>
+            <input type="number" id="contact-number" placeholder="For further contact" maxlength="15">
+            <p>Message</p>
+            <textarea name="contact-message" id="contact-message" cols="30" rows="10" placeholder="Pls write your message here" maxlength="500"></textarea>
+
+            <div class="up"><button onclick="contactus()">Upload</button></div>
+        </div>
 
 
         <div class="usefullinks" id="usefullinks"></div>
@@ -631,7 +670,7 @@
             document.getElementById(`rowsection${index}`).style.borderBottom = " 5px solid #ffc107";
             document.getElementById(`row${index}`).style.display = " block";
         }
-        
+        showsection(2)
         function addtocart(title, author, image, price, edition){
             var tag = title.replace(/\s/g, "_") +author.replace(/\s/g,"_") + edition.replace(/\s/g, "_") +price  ;
             // console.log("he")
@@ -729,6 +768,46 @@
             }
         }
         noincart();
+
+        function  contactus(){
+            var name = document.getElementById("contact-name").value.escape();
+            var number = document.getElementById("contact-number").value.escape();
+            var message = document.getElementById("contact-message").value.escape();
+
+           if(name.trim()!= "" && number.trim()!= "" && message.trim() !=""){
+                var urr = "/contact_suggest"
+                var opt = {
+                    method: "POST",
+                    headers: {"content-type": "application/json"},
+                    body: JSON.stringify({
+                        name: name,
+                        number: number,
+                        message: message,
+                        time: moment().format("MMMM Do, YYYY h:mm a")
+                    })
+                }
+
+               fetch(urr, opt).then((res)=>{
+                   if (res.ok) {
+                        name = document.getElementById("contact-name").value = "";
+                        number = document.getElementById("contact-number").value = "";
+                        message = document.getElementById("contact-message").value = "";
+                        return res.json();
+                    }
+                    else {
+                        return res.json();
+                    }
+               }).then((json)=>{
+                    alert(json.message);
+               });
+               
+
+           }
+           else{
+               alert("We really need to hear from you. Pls fill form correctly");
+           }
+
+        }
     </script>
 
     <!-- <div class="site-stats"></div> -->
@@ -739,7 +818,7 @@
     <script src="/general/js/index.js"></script>
     <script src="/general/js/menu.js"></script>
     <script src="/general/js/search.js"></script>
-    <script src="/archive/js/useful-links.js"></script>
+    <!-- <script src="/archive/js/useful-links.js"></script> -->
     <script src="/general/js/footer.js"></script>
 
 <script>

@@ -1,96 +1,191 @@
 {
   "futa": [
     {
-      "subject": "mathematics",
-      "type": "question",
-      "school":"futa",
-      "uploadedby": "gjgjg",
-      "year": "2019/3030",
+      "subject": "Biology",
+      "type": "answer",
+      "school": "futa",
+      "uploadedby": "jetbooks",
+      "year": "2018/2019",
       "date": "3rd august,2020",
       "time": "1:25 pm",
-      "file": "cupcake2-jetbooks-gjgjg.jpg"
+      "file": "futa-predegree-biology-answer.pdf"
     },
     {
-      "subject": "english language",
+      "subject": "Biology",
       "type": "question",
       "school": "futa",
-      "uploadedby": "JETBOOKS",
-      "file": "/archive/section/download/postutme/english"
+      "uploadedby": "jetbooks",
+      "year": "2018/2019",
+      "date": "3rd august,2020",
+      "time": "1:25 pm",
+      "file": "futa-predegree-biology-question.pdf"
     },
     {
-      "subject": "maths language",
+      "subject": "Chemistry",
       "type": "question",
       "school": "futa",
-      "uploadedby": "JETBOOKS",
-      "file": "/archive/section/download/postutme/english"
+      "uploadedby": "jetbooks",
+      "year": "2018/2019",
+      "date": "3rd august,2020",
+      "time": "1:25 pm",
+      "file": "futa-predegree-chemistry.pdf"
     },
     {
-      "subject": "chemistry language",
-      "type": "question",
+      "subject": "Chemistry",
+      "type": "answer",
       "school": "futa",
-      "uploadedby": "JETBOOKS",
-      "file": "/archive/section/download/postutme/english"
+      "uploadedby": "jetbooks",
+      "year": "2018/2019",
+      "date": "3rd august,2020",
+      "time": "1:25 pm",
+      "file": "futa-predegree-chemistry-answer.pdf"
     },
     {
-      "subject": "english language",
-      "type": "question",
+      "subject": "Economics",
+      "type": "answer",
       "school": "futa",
-      "uploadedby": "JETBOOKS",
-      "file": "/archive/section/download/postutme/english"
+      "uploadedby": "jetbooks",
+      "year": "2018/2019",
+      "date": "3rd august,2020",
+      "time": "1:25 pm",
+      "file": "futa-predegree-economics-answer.pdf"
     },
     {
-      "subject": "english language",
+      "subject": "Economics",
       "type": "question",
       "school": "futa",
-      "uploadedby": "JETBOOKS",
-      "file": "/archive/section/download/postutme/english"
+      "uploadedby": "jetbooks",
+      "year": "2018/2019",
+      "date": "3rd august,2020",
+      "time": "1:25 pm",
+      "file": "futa-predegree-economics-question.pdf"
+    },
+    {
+      "subject": "English",
+      "type": "question",
+      "school": "futa",
+      "uploadedby": "jetbooks",
+      "year": "2018/2019",
+      "date": "3rd august,2020",
+      "time": "1:25 pm",
+      "file": "futa-predegree-english.pdf"
+    },
+    {
+      "subject": "English",
+      "type": "answer",
+      "school": "futa",
+      "uploadedby": "jetbooks",
+      "year": "2018/2019",
+      "date": "3rd august,2020",
+      "time": "1:25 pm",
+      "file": "futa-predegree-english-answer.pdf"
+    },
+    {
+      "subject": "generalpaper",
+      "type": "answer",
+      "school": "futa",
+      "uploadedby": "jetbooks",
+      "year": "2018/2019",
+      "date": "3rd august,2020",
+      "time": "1:25 pm",
+      "file": "futa-predegree-generalpaper-answer.pdf"
+    },
+    {
+      "subject": "generalpaper",
+      "type": "question",
+      "school": "futa",
+      "uploadedby": "jetbooks",
+      "year": "2018/2019",
+      "date": "3rd august,2020",
+      "time": "1:25 pm",
+      "file": "futa-predegree-generalpaper-question.pdf"
+    },
+    {
+      "subject": "mathematics",
+      "type": "answer",
+      "school": "futa",
+      "uploadedby": "jetbooks",
+      "year": "2018/2019",
+      "date": "3rd august,2020",
+      "time": "1:25 pm",
+      "file": "futa-predegree-mathematics-answer.pdf"
+    },
+    {
+      "subject": "mathematics",
+      "type": "question",
+      "school": "futa",
+      "uploadedby": "jetbooks",
+      "year": "2018/2019",
+      "date": "3rd august,2020",
+      "time": "1:25 pm",
+      "file": "futa-predegree-mathematics-question.pdf"
+    },
+    {
+      "subject": "physics",
+      "type": "answer",
+      "school": "futa",
+      "uploadedby": "jetbooks",
+      "year": "2018/2019",
+      "date": "3rd august,2020",
+      "time": "1:25 pm",
+      "file": "futa-predegree-physics-answer.pdf"
+    },
+    {
+      "subject": "physics",
+      "type": "question",
+      "school": "futa",
+      "uploadedby": "jetbooks",
+      "year": "2018/2019",
+      "date": "3rd august,2020",
+      "time": "1:25 pm",
+      "file": "futa-predegree-physics-question.pdf"
     }
   ],
   "oau": [
     {
-        "subject": "mathematics",
-        "type": "question",
-        "school": "oau",
-        "uploadedby": "gjgjg uploadedbyuploadedby uploadedby uploadedby uploadedby",
-        "year": "2019/3030",
-        "date": "3rd august,2020",
-        "time": "1:25 pm",
-        "file": "cupcake2-jetbooks-gjgjg.jpg"
+      "subject": "mathematics",
+      "type": "question",
+      "school": "oau",
+      "uploadedby": "gjgjg uploadedbyuploadedby uploadedby uploadedby uploadedby",
+      "year": "2019/3030",
+      "date": "3rd august,2020",
+      "time": "1:25 pm",
+      "file": "bread3-jetbooks-fjdjf.jpg"
     },
     {
-        "subject": "english language",
-        "type": "question",
-        "school": "oau",
-        "uploadedby": "JETBOOKS",
-        "file": "/archive/section/download/postutme/english"
+      "subject": "english language",
+      "type": "question",
+      "school": "oau",
+      "uploadedby": "JETBOOKS",
+      "file": "/archive/section/download/predegree/english"
     },
     {
-        "subject": "maths language",
-        "type": "question",
-        "school": "oau",
-        "uploadedby": "JETBOOKS",
-        "file": "/archive/section/download/postutme/english"
+      "subject": "maths language",
+      "type": "question",
+      "school": "oau",
+      "uploadedby": "JETBOOKS",
+      "file": "/archive/section/download/predegree/english"
     },
     {
-        "subject": "chemistry language",
-        "type": "question",
-        "school": "oau",
-        "uploadedby": "JETBOOKS",
-        "file": "/archive/section/download/postutme/english"
+      "subject": "chemistry language",
+      "type": "question",
+      "school": "oau",
+      "uploadedby": "JETBOOKS",
+      "file": "/archive/section/download/predegree/english"
     },
     {
-        "subject": "english language",
-        "type": "question",
-        "school": "oau",
-        "uploadedby": "JETBOOKS",
-        "file": "/archive/section/download/postutme/english"
+      "subject": "english language",
+      "type": "question",
+      "school": "oau",
+      "uploadedby": "JETBOOKS",
+      "file": "/archive/section/download/predegree/english"
     },
     {
-        "subject": "english language",
-        "type": "question",
-        "school": "oau",
-        "uploadedby": "JETBOOKS",
-        "file": "/archive/section/download/postutme/english"
+      "subject": "english language",
+      "type": "question",
+      "school": "oau",
+      "uploadedby": "JETBOOKS",
+      "file": "/archive/section/download/predegree/english"
     }
-]
+  ]
 }

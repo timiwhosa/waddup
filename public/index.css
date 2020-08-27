@@ -104,14 +104,15 @@ h2{
 } */
 .landing-btn{
     position: absolute;
-    bottom: 10vh;
+    bottom: 30px;
+    bottom: 7vh;
     left: 50%;
     transform: translateX(-50%);
 }
 .landing button{
     width: fit-content;
     min-width: 200px;
-    height: 30px;
+    height: 50px;
     border: none;
     display: flex;
     justify-content: center;
@@ -123,7 +124,6 @@ h2{
     font-weight: 600;
     font-size: 20px;
     margin-top: 7px;
-    padding: 25px 20px;
     cursor: pointer;
     color: white;
 }
@@ -572,7 +572,7 @@ button:active{
     overflow-y: hidden;
     overflow-x: scroll;
     white-space: nowrap;
-    padding: 10vh 0;
+    padding: 20vh 0;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -758,8 +758,8 @@ button:active{
         margin-bottom: 20px;
     }
 }
-@media screen and (max-width: 440px){
+@media screen and (max-width: 220px){
     :root{
-        --w: 110px
+        --w: 100px
     }
 }

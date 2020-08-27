@@ -27,9 +27,7 @@
                 <div class="top-top-div">
                     <div class="top-top-txt1">
                         You can practise either; <br> 
-                        <strong><a href="#single-mode">Single mode:</a></strong>  Which allows you to practise a particular subject for 5min(each practise,
-                         <!-- <a href="/blog/futa-postutme">FUTA POST-UTME</a> last for 30min, Hence each question requires about 5min+ to complete. )  -->
-                         <span id="or">OR</span>
+                        <strong><a href="#single-mode">Single mode:</a></strong>  Which allows you to practise a particular subject for 5min(each practise, <a href="/blog/futa-postutme">FUTA POST-UTME</a> last for 30min, Hence each question requires about 5min+ to complete. ) <span id="or">OR</span>
                         <strong><a href="#multiple-mode">Multiple mode:</a></strong>  Which allows you to practise five(5) subject for 30min (each practise).
                      <br> <br> 
                      <!-- Know that You can also set the time as you please, Pause the exam and continue from where you stopped at anytime.  -->
@@ -61,8 +59,8 @@
             <h5>Click on any course to start</h5>
             <ul>
                 
-                <li>MTS101  <a href="/single/postutme?subject=mts101"> <span id="start">START</span></a></li>
-                <li>GNS101 <a href="/single/postutme?subject=gns101"> <span id="start">START</span></a></li>
+                <li>BIOLOGY  <a href="/single/postutme?subject=biology"> <span id="start">START</span></a></li>
+                <li>CHEMISTRY <a href="/single/postutme?subject=chemistry"> <span id="start">START</span></a></li>
                 <li>ECONOMICS<a href="/single/postutme?subject=economics"> <span id="start">START</span></a></li>
                 <li>ENGLISH <a href="/single/postutme?subject=english"> <span id="start">START</span></a></li>
                 <li>GENERAL PAPER <a href="/single/postutme?subject=generalpaper"> <span id="start">START</span></a></li>
@@ -78,7 +76,7 @@
             <h3>MULTIPLE MODE</h3>
             <!-- <h5>Here you are to select 3 other subjects and click start, general paper is compulsory and has already been selected for you</h5> -->
             <h5>Select any four(4) subjects based on your Jamb combination and General paper <br> Scroll to the bottom and Click START when ready</h5>
-            <form method="POST" action="/multiple/postutme" id="select-subject">
+            <form method="GET" action="/multiple/postutme"  id="select-subject">
                 <p>  <span class="mul-subject">BIOLOGY</span><input type="checkbox" name="multiple" value="biology" id="agric11"></p>
                 <p>  <span class="mul-subject">CHEMISTRY</span><input type="checkbox" name="multiple" value="chemistry" id="agric22"></p>
                 <p>  <span class="mul-subject">ECONOMICS</span><input type="checkbox" name="multiple" value="economics" id="economics"></p>
@@ -92,9 +90,11 @@
                 
                 <div id="error"></div>
                 <div id="save">
-                    <input type="submit" value="START" name="save" id="Save">
+                    <input type="submit" value="START" name="" id="Save">
                 </div>
             </form>
+
+            <!-- onsubmit=" return localStorage.setItem('go',this.elements.namedItem('multiple').value)" -->
         </div>
 
         <!-- <div class="paid-version-plan">

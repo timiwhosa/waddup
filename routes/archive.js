@@ -56,24 +56,51 @@ String.prototype.escape = function () {
         return tagtoreplace[tag] || tag;
     });
 }
+var visit = JSON.parse(fs.readFileSync(path.join(__dirname,"../views.json")));
+
+async function visits(page) {
+  var vv = 0;
+  for (let v = 0; v < visit.length; v++) {
+    if (visit[v].page == page) {
+      visit[v].visit += 1;
+      fs.writeFileSync(
+        path.join(__dirname, "../views.json"),
+        JSON.stringify(visit, null, 2)
+      );
+      vv = 1;
+    }
+  }
+  if (vv == 0) {
+    visit.push({
+      page,
+      visit: 1,
+    });
+    fs.writeFileSync(
+      path.join(__dirname, "../views.json"),
+      JSON.stringify(visit, null, 2)
+    );
+  }
+}
 
 var archive = function (app){
 
     //****************ARCHIVE HOME PAGE****************** */ //
     app.get("/archive", (req,res)=>{
-        res.sendFile(public + "/archive/archive.html");
-        view[1].visit += 1;
-        fs.writeFileSync(path.join(__dirname, "../views.json"), JSON.stringify(view, null, 2))
+        visits("archive");
+        res.sendFile(public + "/archive/archive.html");        
     });
     app.get("/archive/dpt", (req, res) => {
+        visits(req.query.dpt);
         res.sendFile(public + "/archive/archive-level.html");
     });
     app.get("/archive/school/:inst", jsonparser, (req,res)=>{
+        visits(req.params.inst);
         var institution = JSON.parse(fs.readFileSync(path.join(__dirname, `../institution/${req.params.inst}.json`)))
         res.status(200).json(institution);
     });
 
     app.get("/archive/course/download/:data", urlencodedParser, (req, res) => {
+        visits(req.params.data);
 
         var download = path.join(__dirname, `../public/uploads/${req.query.section}/${req.query.school}/${req.params.data}`);
         console.log(download)
@@ -90,6 +117,7 @@ var archive = function (app){
     });
 
     app.get("/archive/dpt/level", (req, res) => {
+        visits(req.query.fac);
         var faculty = JSON.parse(fs.readFileSync(path.join(__dirname, `../schools/${req.query.fac}.json`)));
         for (i = 0; i < faculty.length; i++) {
             if (faculty[i].department === req.query.dpt) {
@@ -100,16 +128,18 @@ var archive = function (app){
 
 
     app.get("/archive/course/:course", (req, res) => {
+        visits(`course-${req.params.course}`);
         res.sendFile(public + "/archive/archive-course.html");
-        view[6].visit += 1;
-        fs.writeFileSync(path.join(__dirname, "../views.json"), JSON.stringify(view, null, 2))
+        
     });
     // archive reviews
     var archivereview = JSON.parse(fs.readFileSync(path.join(__dirname, "../user-responses/archive/archivereview.json")))
     app.get("/archivereview", (req, res) => {
+        visits("archivereview");
         res.json(archivereview);
     });
     app.post("/archivereview", jsonparser, (req, res) => {
+        visits("archivereview-post");
         var data = {
             name: req.body.name.escape(),
             time: req.body.time.escape(),
@@ -134,10 +164,16 @@ var archive = function (app){
     });
     // **********************uploading a file **********************
     app.post("/archive/upload", upload.single("upload"), urlencodedParser, (req, res) => {
+        visits(`uploads-${req.query.course.toString().escape()}`);
+        visits(`uploads-${req.query.school.toString().escape()}`);
+        visits(`uploads-${req.query.type.toString().escape()}`);
+        visits(`uploads-${req.query.level.toString().escape()}`);
+        visits(`uploads-${req.query.faculty.toString().escape()}`);
         var school = req.query.school;
 
         if (uploads[school]) {
             if (req.query.to) {
+                visits(`uploads-${req.query.to.toString().escape()}`);
                 var year = new Date().getFullYear();
                 var data = {
                     course: req.query.course.trim().toLowerCase().escape(),
@@ -334,6 +370,10 @@ var archive = function (app){
 
 
     app.post("/archive/section/upload", upload.single("upload"), urlencodedParser, (req, res) => {
+        visits(`section-uploads-${req.query.school.toString().escape()}`);
+        visits(`section-uploads-${req.query.section.toString().escape()}`);
+        visits(`section-uploads-${req.query.subject.toString().escape()}`);
+        visits(`section-uploads-${req.query.type.toString().escape()}`);
         var school = req.query.school;
         var uploads = JSON.parse(fs.readFileSync(path.join(__dirname, `../institution-uploads/${req.query.section}.json`)))
         if (uploads) {
@@ -390,6 +430,7 @@ var archive = function (app){
 
     // videos
     app.get("/archive/recent/:type", jsonparser, (req, res) => {
+        visits(`recent-${req.params.type.toString().escape()}`);
         var hi = JSON.parse(fs.readFileSync(path.join(__dirname, `../public/archive/recent.json`)));
         if (hi[req.params.type]) {
             res.json(hi[req.params.type]);
@@ -406,6 +447,8 @@ var archive = function (app){
 
     var catsuggest = JSON.parse(fs.readFileSync(path.join(__dirname, "../user-responses/archive/categorysuggestion.json")));
     app.post("/catsuggest", jsonparser, (req, res) => {
+        
+        visits(`catsuggest`);
         var data = {
             name: req.body.name.escape(),
             whatsapp_number: req.body.whatsapp_number.toString().escape(),
@@ -420,9 +463,11 @@ var archive = function (app){
 
     //uploadnow
     app.get("/uploadnow", (req, res) => {
+        
+        visits(`uploadnow`);
         res.sendFile(path.join(__dirname, "../public/archive/upload.html"));
         view[8].visit += 1;
-        fs.writeFileSync(path.join(__dirname, "../views.json"), JSON.stringify(view, null, 2))
+        
     });
 
 
@@ -432,6 +477,8 @@ var archive = function (app){
     // ************ARCHIVE SEARCH**************//
 
     app.post("/search/category", jsonparser, (req,res)=>{
+        visits(`search-${req.body.school.toString().escape()}`);
+        visits(`search-${req.body.input.toString().escape()}`);
         var school = req.body.school.toLowerCase();
         var course = uploads[school].filter((course)=>{
             return course.course.includes(req.body.input)
@@ -479,14 +526,20 @@ var archive = function (app){
 
 
     app.get("/search/category/:data", urlencodedParser, (req, res) => {
+        // visits(`search-category-${req.params.data.toString().escape()}`);
         res.status(200).sendFile(path.join(__dirname, "../public/archive/search.html"));
 
     });
     app.get("/archive/search/:data", urlencodedParser, async (req,res)=>{
         var sec = req.params.data.split(",")[0];
         var h = req.params.data.split(",");
+        visits(`archive-search-${sec.toString().escape()}`);
         if(sec=="course"){
             var school = req.query.school.toLowerCase();
+            visits(`archive-search-${school.toString().escape()}`);
+        }
+        for (i = 1; i < h.length; i++) {
+            visits(`archive-search-course-${h[i].toString().escape()}`);
         }
 
         var datt =[];
@@ -495,6 +548,7 @@ var archive = function (app){
             uploads[school].filter((cours) => {
                 
                 for(i = 1; i< h.length; i++){
+                    
                     if (cours.course.includes(h[i])) {
                         course.push(cours)
                     };
@@ -554,7 +608,7 @@ var archive = function (app){
             })
         }
         view[3].visit += 1;
-        fs.writeFileSync(path.join(__dirname, "../views.json"), JSON.stringify(view, null, 2))
+        
     });
 
 
@@ -563,6 +617,8 @@ var archive = function (app){
 
 
     app.get("/archive/section/:section", (req, res) => {
+
+        visits(`archive-section-${req.params.section.toString().escape()}`);
         res.sendFile(public + "/archive/section.html");
     });
 
@@ -574,6 +630,7 @@ var archive = function (app){
             if (courses.length > 0) {
                 var data = [];
                 for (i = 0; i < courses.length; i++) {
+                visits(`archive-section-uploads-${courses[i].course.toString().escape()}`);
                     data.push({
                         course: courses[i].course,
                         faculty: courses[i].faculty,
@@ -598,6 +655,11 @@ var archive = function (app){
     });
 
     app.get("/archive/section/download/:section/:subject", (req, res) => {
+        visits(
+          `archive-section-download-${req.params.section
+            .toString()
+            .escape()}-${req.params.subject.toString().escape()}`
+        );
         var download = path.join(__dirname, `../public/uploads/${req.params.section}/${req.query.school}/${req.params.subject}`);
         fs.readFile(download, (err, content) => {
             if (err) {
@@ -622,10 +684,9 @@ var archive = function (app){
 
     // ****************** Book section**********************//
     app.get("/archive/books", (req, res) => {
-        res.sendFile(public + "/archive/archive-books.html");
-        view[9].visit += 1;
-        fs.writeFileSync(path.join(__dirname, "../views.json"), JSON.stringify(view, null, 2))
 
+        visits(`archive-books`);        
+        res.sendFile(public + "/archive/archive-books.html");
     });
     app.get("/archive/books/recent", (req, res) => {
         res.json( JSON.parse(fs.readFileSync(path.join(__dirname, `../public/archive/book/recent-books.json`))))
@@ -672,6 +733,7 @@ var archive = function (app){
     });
 
     app.get("/book/review/:title/:author", urlencodedParser, (req, res) => {
+        visits(`book-${req.params.title.replace(/\s/g, "-").trim().toLowerCase().toString().escape()}`);
         var book = books.filter((bk) => {
             return bk.title.trim().toLowerCase() == req.params.title.trim().toLowerCase() && bk.author.trim().toLowerCase() == req.params.author.trim().toLowerCase()
         });
@@ -688,7 +750,7 @@ var archive = function (app){
     //******************Book section SELL REQUEST*********************** */ //
 
     app.post("/sell-request", jsonparser, (req, res) => {
-        console.log(req.body);
+        // console.log(req.body);
         var sellrequest = JSON.parse(fs.readFileSync(path.join(__dirname, "../public/archive/book/sell-request1.json")))
         // console.log(sellrequest);
         var check = sellrequest.filter((seller) => {
@@ -724,10 +786,8 @@ var archive = function (app){
     // ***********************video section***********************//
 
     app.get("/archive/videos", (req, res) => {
+        visits(`archive-videos`);
         res.sendFile(public + "/archive/archive-video.html");
-        view[10].visit += 1;
-        fs.writeFileSync(path.join(__dirname, "../views.json"), JSON.stringify(view, null, 2))
-
     });
 
 
@@ -742,6 +802,7 @@ var archive = function (app){
    
     var contact_suggest = JSON.parse(fs.readFileSync(path.join(__dirname,"../user-responses/archive/contact_suggest.json")));
     app.post("/contact_suggest", jsonparser,(req,res)=>{
+        visits(`contact_suggest`);
         if (req.body.name.trim() && req.body.number.trim() && req.body.message.trim()){
             // console.log(req.body);
             var data = {

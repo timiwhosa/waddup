@@ -222,7 +222,7 @@
         <h2>Most used features</h2>
         <div class="most-u">
             <a href="/archive">
-                <div class="mused">
+                <div class="mused" id="mused">
                     <h3>JETarchive</h3>
                     <h5 style="text-align: center;">(Pastquestion, handouts)</h5>
                     <p><span class="subj">Mee101</span>: 1500visits</p>
@@ -282,6 +282,9 @@
                 <div class="">
                     <span><a href="/archive/section/postutme">PAST QUESTIONS</a></span>
                 </div>
+                <div class="">
+                    <span><a href="/archive/books">BOOKS</a></span>
+                </div>
             </div>
             
 
@@ -293,11 +296,17 @@
                 <div class="">
                     <span><a href="/archive/section/predegree">PAST QUESTIONS</a></span>
                 </div>
+                <div class="">
+                    <span><a href="/archive/books">BOOKS</a></span>
+                </div>
             </div>
             <div class="blck">
                 <h3>UABS/ DIRECT ENTRY</h3>
                 <div class="">
                     <span><a href="/archive/section/uabs">PAST QUESTIONS</a></span>
+                </div>
+                <div class="">
+                    <span><a href="/archive/books">BOOKS</a></span>
                 </div>
             </div>
             
@@ -326,6 +335,9 @@
                 
                 <div class="">
                     <span><a href="/archive">PAST QUESTIONS</a></span>
+                </div>
+                <div class="">
+                    <span><a href="/archive/books">BOOKS</a></span>
                 </div>
             </div>
                 <!-- <a href="/cbt">
@@ -680,7 +692,12 @@
             </div>
         </div>
         <footer></footer>
+        <!-- script -->
+    <script src="/general/js/nav.js"></script>
+    <script src="/general/js/moment.js"></script>
+    <script src="/general/js/menu.js"></script>
     <script>
+
         var marker = document.querySelector(".marker");
         var item = document.querySelectorAll(".login-head span");
 
@@ -726,6 +743,16 @@
                 // document.body.scrollTop = 0;
             }
         }
+        
+        var wintyp = window.location.href.split("/#")[1];
+        if(wintyp == "signup"){
+            scrol1(1);
+        }
+        if(wintyp == "login"){
+            scrol1(1);
+            scrol(2);
+            indicator(item[1]);
+        }
 
         function sec(){
             var lel1 = document.getElementById("100level");
@@ -758,13 +785,14 @@
         // function signup(){
         //     console.log("");
         // }
-        
+        fetch("/index", {
+            method:"get",
+            header: {"Accept": "application/json"},
+            mode:"cors"
+        })
     </script>
     <!-- script-->
-    <script src="/general/js/nav.js"></script>
-    <script src="/general/js/moment.js"></script>
     <script src="/general/js/index.js"></script>
-    <script src="/general/js/menu.js"></script>
     <script src="/general/js/footer.js"></script>
 
 

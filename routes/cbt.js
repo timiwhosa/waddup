@@ -5,6 +5,34 @@ var jsonparser = bodyparser.json();
 var path = require("path");
 var cbt = function(app){
 
+  var visit = JSON.parse(
+    fs.readFileSync(path.join(__dirname, "../views.json"))
+  );
+
+  async function visits(page) {
+    var vv = 0;
+    for (let v = 0; v < visit.length; v++) {
+      if (visit[v].page == page) {
+        visit[v].visit += 1;
+        fs.writeFileSync(
+          path.join(__dirname, "../views.json"),
+          JSON.stringify(visit, null, 2)
+        );
+        vv = 1;
+      }
+    }
+    if (vv == 0) {
+      visit.push({
+        page,
+        visit: 1,
+      });
+      fs.writeFileSync(
+        path.join(__dirname, "../views.json"),
+        JSON.stringify(visit, null, 2)
+      );
+    }
+  }
+
   var util = path.join(__dirname, "../user-responses/postutme");
   var p = path.join(__dirname , "../public");
 
@@ -72,9 +100,11 @@ var cbt = function(app){
     //   res.end();
     // });
   app.get("/cbt", (req, res) => {
+    visits("cbt");
     res.sendFile(path.join(__dirname, "../public/cbt.html"));
   });
   app.get("/cbt/:section", (req, res) => {
+    visits(`cbt-${req.params.section}`);
     if(req.params.section == "postutme"){
       res.sendFile(path.join(__dirname, "../public/cbt/postutme/free-mode.html"));
     }
@@ -89,6 +119,7 @@ var cbt = function(app){
     var hll = [];
     var singlesubject;
     app.get("/single/:section", (req, res) => {
+    visits(`single-${req.params.section}`);
       res.sendFile(p +"/cbt/postutme/single.html");
     });
     app.get("/question/:section", (req, res) => {
@@ -96,6 +127,8 @@ var cbt = function(app){
       var { questions } = require(path.join(__dirname, `../public/cbt/cbt-question/${req.params.section}-questions.js`));
       hll = [];
       singlesubject = req.query.subject;
+      
+    visits(`cbt-question-${singlesubject}`);
       function myran(l, y) {
         let one = y + 1;
         let two = Math.random() * one;
@@ -155,8 +188,10 @@ var cbt = function(app){
     //   // console.log(subject.length);
     //   res.sendFile(p+"/postutme/multiple.html");
     // });
-    app.get("/multiple/postutme", (req,res)=>{
+    app.get("/multiple/:section", (req,res)=>{
       // console.log(req.query)
+      
+    visits(`cbt-${req.params.section}`);
       res.sendFile(p + "/cbt/postutme/multiple.html");
       // res.end()
     })
@@ -181,6 +216,7 @@ var cbt = function(app){
       function creatarray(start) {
         let agricquestion = [];
         for (j = 0; j < subject.length; j++) {
+          visits(`cbt-question-${subject[j]}`);
           var hello = [];
           for (i = start; i <= questions[subject[j]].length - 1; i++) {
             hello.push(questions[subject[j]][i]);

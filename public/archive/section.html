@@ -184,8 +184,19 @@
             else{
                 var html = "";
                 for(j=0; j<data.length; j++){
-                    html +=`
-                        <div class="search-data" onclick="it('/archive/section/download/${section}/${data[j].file.escape()}?school=${school.escape()}', 'jetbooks-${data[j].school}-${section}-${data[j].subject.replace(/\s/g,"-")}-${data[j].type.escape()}.pdf')">
+                    // html +=`
+                    //     <div class="search-data" onclick="it('/archive/section/download/${section}/${data[j].file.escape()}?school=${school.escape()}', 'jetbooks-${data[j].school}-${section}-${data[j].subject.replace(/\s/g,"-")}-${data[j].type.escape()}.pdf')">
+                    //         <div class="">Subject: <span class="b">${data[j].subject.escape()}</span></div>
+                    //         <div class=""><span class="b">School</span> : ${data[j].school.escape()}</div>
+                    //         <div> Uploadedby: ${data[j].uploadedby.escape()}</div>
+                    //         <div class="lel">
+                    //             <div class=""><span class="b">Type</span>: ${data[j].type.escape()}</div>
+                    //             <div class=""><span class="b">JETbooks</span></div>
+                    //         </div>
+
+                    //     </div>`
+                     html +=`
+                        <div class="search-data" > <a href="/archive/section/download/${section}/${data[j].file.escape()}?school=${school.escape()}" download='jetbooks-${data[j].school}-${section}-${data[j].subject.replace(/\s/g,"-")}-${data[j].type.escape()}.pdf')">
                             <div class="">Subject: <span class="b">${data[j].subject.escape()}</span></div>
                             <div class=""><span class="b">School</span> : ${data[j].school.escape()}</div>
                             <div> Uploadedby: ${data[j].uploadedby.escape()}</div>
@@ -193,6 +204,7 @@
                                 <div class=""><span class="b">Type</span>: ${data[j].type.escape()}</div>
                                 <div class=""><span class="b">JETbooks</span></div>
                             </div>
+                            </a>
 
                         </div>`
                 

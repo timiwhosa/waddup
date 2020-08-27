@@ -1,56 +1,134 @@
 [
   {
-    "page": "Home",
-    "visit": 61
-  },
-  {
     "page": "archive",
-    "visit": 368
+    "visit": 6
   },
   {
-    "page": "library",
+    "page": "archivereview",
+    "visit": 6
+  },
+  {
+    "page": "search-futa",
+    "visit": 3
+  },
+  {
+    "page": "archive-search-course",
+    "visit": 4
+  },
+  {
+    "page": "archive-search-futa",
+    "visit": 4
+  },
+  {
+    "page": "archive-search-course-mee202",
+    "visit": 4
+  },
+  {
+    "page": "archive-search-course-mee303",
+    "visit": 4
+  },
+  {
+    "page": "archive-search-course-mee101",
+    "visit": 4
+  },
+  {
+    "page": "archive-search-course-mee102",
+    "visit": 4
+  },
+  {
+    "page": "search-mee",
+    "visit": 2
+  },
+  {
+    "page": "book-the-richest-man-in-babylon",
+    "visit": 1
+  },
+  {
+    "page": "recent-uploads",
     "visit": 5
   },
   {
-    "page": "search",
-    "visit": 76
+    "page": "recent-video",
+    "visit": 5
   },
   {
-    "page": "cgpa",
-    "visit": 8
+    "page": "cgpa_cal",
+    "visit": 2
+  },
+  {
+    "page": "postutme-calculator",
+    "visit": 1
+  },
+  {
+    "page": "cbt",
+    "visit": 1
+  },
+  {
+    "page": "archive-section-predegree",
+    "visit": 1
+  },
+  {
+    "page": "archive-section-download-predegree-futa-predegree-biology-answer.pdf",
+    "visit": 1
+  },
+  {
+    "page": "archive-section-uabs",
+    "visit": 1
+  },
+  {
+    "page": "futa",
+    "visit": 1
+  },
+  {
+    "page": "archive-section-staylite",
+    "visit": 1
+  },
+  {
+    "page": "archive-section-uploads-mee202",
+    "visit": 1
+  },
+  {
+    "page": "archive-section-uploads-mee303",
+    "visit": 1
+  },
+  {
+    "page": "archive-section-uploads-mee101",
+    "visit": 1
+  },
+  {
+    "page": "archive-section-uploads-mee102",
+    "visit": 1
+  },
+  {
+    "page": "course-mee101",
+    "visit": 2
+  },
+  {
+    "page": "cbt-100level",
+    "visit": 3
+  },
+  {
+    "page": "cbt-postutme",
+    "visit": 1
+  },
+  {
+    "page": "cbt-question-biology",
+    "visit": 2
+  },
+  {
+    "page": "cbt-question-chemistry",
+    "visit": 2
+  },
+  {
+    "page": "category",
+    "visit": 1
+  },
+  {
+    "page": "index",
+    "visit": 17
   },
   {
     "page": "about",
-    "visit": 46
-  },
-  {
-    "page": "course",
-    "visit": 100
-  },
-  {
-    "page": "post-utme",
-    "visit": 0,
-    "done": "no"
-  },
-  {
-    "page": "upload",
-    "visit": 50
-  },
-  {
-    "page": "books",
-    "visit": 12
-  },
-  {
-    "page": "video",
-    "visit": 12
-  },
-  {
-    "page": "contact",
-    "visit": 15
-  },
-  {
-    "page": "downloads",
-    "visit": 0,
-    "done": "no"
+    "visit": 1
   }
 ]

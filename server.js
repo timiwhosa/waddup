@@ -9,6 +9,7 @@ const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 var session = require("express-session");
 // var multer = require("multer");
+const secret = process.env.Secret;
 
 var urlencodedParser = bodyparser.urlencoded({ extended: false });
 var jsonparser = bodyparser.json();
@@ -21,7 +22,7 @@ var salt = 10;
 var port =process.env.PORT || 3001;
 app.use(
   session({
-    secret: "randomise it all",
+    secret: "secret",
     resave: true,
     saveUninitialized: false,
   })
